@@ -1,0 +1,1 @@
+import{_ as t,c as s,a as o,o as n}from"./D3s1ge3G.js";const a={};function r(c,e){return n(),s("div",null,e[0]||(e[0]=[o("h1",null,"Welcome to Pust",-1),o("p",null,"This is the Pust Yoga home page!",-1)]))}const u=t(a,[["render",r]]);export{u as default};
