@@ -7,7 +7,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import teacherRoutes from './routes/teacher.js'
 import activityRoutes from './routes/activity.js'
-// import teacher_activityRoutes from './routes/teacher_activity.js'
+import teacher_activityRoutes from './routes/teacher_activity.js'
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use("/api/teacher", teacherRoutes)
 app.use("/api/activity", activityRoutes)
-// app.use("/api/teacher_activity", teacher_activityRoutes)
+app.use("/api/teacher_activity", teacher_activityRoutes)
 
 app.listen(8803,()=>{
     console.log("Connected!")
