@@ -1,1 +1,0 @@
-import{_ as l,c as r,a as n,F as t,o}from"./DBqtplth.js";const s={};function a(u,e){return o(),r(t,null,[e[0]||(e[0]=n("h1",null,"MEET THE TEAM",-1)),e[1]||(e[1]=n("ul",null,null,-1))],64)}const f=l(s,[["render",a]]);export{f as default};
