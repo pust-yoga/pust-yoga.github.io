@@ -14,6 +14,9 @@ onMounted(() => {
 <template>
     <h1>ALL ACTIVITIES</h1>
     <ul>
-        <li v-for="activity in activities" :key="activity.id">{{ activity.name }}</li>
+        <li v-for="activity in activities" :key="activity.id">
+            {{ activity.name }}
+            <NuxtLink :to="'/activities/' + activity.id">View Details</NuxtLink>
+        </li>
     </ul>
 </template>
