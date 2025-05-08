@@ -21,5 +21,6 @@ onMounted(() => {
     <div v-if="teacher">
         <h1>{{ teacher.firstname + " " + teacher.lastname }}</h1>
         <p>{{ teacher.CV }}</p>
+        <img :src="teacher.picture" alt="Teacher Picture">
     </div>
 </template>

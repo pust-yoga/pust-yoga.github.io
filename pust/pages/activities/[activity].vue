@@ -21,5 +21,8 @@ onMounted(() => {
     <div v-if="activity">
         <h1>{{ activity.name }}</h1>
         <p>{{ activity.description }}</p>
+        <img :src="activity.picture" alt="Activity Picture">
+        <p>{{ activity.expertise_level }}</p>
+        <p>{{ activity.practical_information }}</p>
     </div>
 </template>
