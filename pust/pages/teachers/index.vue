@@ -17,6 +17,7 @@ onMounted(() => {
     <ul>
         <li v-for="teacher in teachers" :key="teacher.id">
             {{ teacher.firstname + " " + teacher.lastname }}
+            <NuxtLink :to="'/teachers/' + teacher.id">View Profile</NuxtLink>
         </li>
     </ul>
 </template>
