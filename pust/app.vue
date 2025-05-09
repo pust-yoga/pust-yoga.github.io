@@ -1,7 +1,7 @@
 <template>
     <nav>
         <NuxtLink to="/">
-            <img src="public/pust-yoga_logo_cropped.png" alt="Logo" />
+            <img src="/pust-yoga_logo_cropped.png" alt="Logo" />
         </NuxtLink>
         <ul>
             <li><NuxtLink to="/teachers">TEACHERS</NuxtLink></li>

@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 const { $supabase } = useNuxtApp()
 
 const activities = ref([])
@@ -9,13 +9,13 @@ async function getActivities() {
 onMounted(() => {
     getActivities()
 })
-</script>
+</script> -->
 
 <template>
     <h1>ALL ACTIVITIES</h1>
     <ul>
-        <li v-for="activity in activities" :key="activity.id">
+        <!-- <li v-for="activity in activities" :key="activity.id">
             {{ activity.name }}
-        </li>
+        </li> -->
     </ul>
 </template>

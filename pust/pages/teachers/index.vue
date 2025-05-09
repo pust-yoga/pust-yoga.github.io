@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 const { $supabase } = useNuxtApp()
 
 const teachers = ref([])
@@ -10,13 +10,13 @@ onMounted(() => {
     getTeachers()
 })
 </script>
-
+ -->
 
 <template>
     <h1>MEET THE TEAM</h1>
     <ul>
-        <li v-for="teacher in teachers" :key="teacher.id">
+        <!-- <li v-for="teacher in teachers" :key="teacher.id">
             {{ teacher.firstname + " " + teacher.lastname }}
-        </li>
+        </li> -->
     </ul>
 </template>

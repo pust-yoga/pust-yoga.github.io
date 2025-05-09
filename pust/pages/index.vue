@@ -18,7 +18,7 @@
 
 <style scoped>
 section.home {
-    background-image: url("../public/pust_home.jpg");
+    background-image: url("/pust_home.jpg");
     background-size: cover;
     background-position: center;
     height: calc(100vh - var(--header-height));
