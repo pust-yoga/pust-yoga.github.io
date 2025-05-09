@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "predeploy": "nuxt generate",
-    "deploy": "gh-pages -d .output/public"
+    "deploy": "gh-pages -d .output/public --dotfiles"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
