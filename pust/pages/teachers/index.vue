@@ -21,3 +21,14 @@ onMounted(() => {
         </li>
     </ul>
 </template>
+
+<style>
+body {
+    background-color: var(--background);
+}
+
+</style>
+<style scoped>
+
+
+</style>

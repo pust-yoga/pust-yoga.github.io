@@ -18,6 +18,7 @@
 :root {
     --header-height: 50px;
     --blue: #597ED1;
+    --background: #FFF1D5E5;
 }
 
 body {
