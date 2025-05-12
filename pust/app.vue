@@ -11,6 +11,34 @@
         </ul>
     </nav>
     <NuxtPage />
+    <footer>
+        <h2>PUST YOGA</h2>
+        <div>
+            <div>
+                <p>Find balance through breath, movement, and mindfulness. 
+                    <br>We offer yoga classes for all levels – from beginners to advanced practitioners.</p>
+                <p>Step into a calm and welcoming space to reconnect with yourself.</p>
+                <p>🌿 🧘 ✨</p>
+                <div class="socials">
+                    <a href="https://instagram.com">
+                        <img src="/socials-insta.png" alt="Instagram" />
+                    </a>
+                    <a href="https://facebook.com">
+                        <img src="/socials-fb.png" alt="Facebook" />
+                    </a>
+                    <a href="https://youtube.com">
+                        <img src="/socials-yt.png" alt="Youtube" />
+                    </a>
+                </div>
+            </div>
+            <div class="links">
+                <div>
+                    <NuxtLink to="/about">About PUST YOGA</NuxtLink>
+                    <NuxtLink to="/contact">Contact Us</NuxtLink>
+                </div>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <style>
@@ -85,4 +113,63 @@ nav a:hover {
     background-color: #f0f0f0;
     color: #000;
 }
+
+footer {
+    background-color: white;
+    padding: 50px 100px;
+}
+
+footer h2 {
+    margin: 0 0 10px 0;
+    color: #2E3A59;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+footer > div {
+    display: flex;
+    flex-direction: row;
+}
+
+footer > div > div {
+    flex: 1;
+}
+
+footer p {
+    color: #445277;
+    font-size: 18px;
+}
+
+footer .socials {
+    display: flex;
+    flex-direction: row;    
+    gap: 20px;
+}
+
+footer .socials img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s;
+}
+
+footer .socials img:hover {
+    transform: scale(1.1);
+}
+
+footer .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .links a {
+    display: block;
+    color: #445277;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 0;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
 </style>

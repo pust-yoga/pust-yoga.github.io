@@ -54,10 +54,6 @@
             </div>
         </div>
     </section>
-    <div>
-        <h1>Welcome to Pust</h1>
-        <p>This is the Pust Yoga home page!</p>
-    </div>
 </template>
 
 
@@ -183,6 +179,7 @@ section.home {
 
 .heads {
     background-color: #CAF0D9;
+    overflow: hidden;
 }
 
 .heads > div {
