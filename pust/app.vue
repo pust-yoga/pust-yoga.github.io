@@ -15,15 +15,33 @@
 
 <style>
 /* GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 :root {
-    --header-height: 50px;
+    --header-height: 75px;
     --blue: #597ED1;
+    --background: rgba(255, 241, 213, 0.90);
+    --header-color: #ffffff;
+    --font: Inter, Arial, sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: Inter, Arial, sans-serif;
+    font-family: var(--font);
+    background-color: var(--background);
 }
+
+.link {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    font-style: normal;
+    color: white;
+    text-decoration: none;
+    padding: 15px 50px;
+    border-radius: 8px;
+    background: #D49277;
+}
+
 </style>
 
 <style scoped>
@@ -33,6 +51,7 @@ nav {
     position: relative;
     height: var(--header-height);
     padding: 0 20px;
+    background-color: var(--header-color);
 }
 nav img {
     height: var(--header-height);
@@ -42,6 +61,7 @@ nav img {
 nav ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -51,7 +71,7 @@ nav ul {
 nav ul a {
     display: inline-block;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 0 20px;
     transition: background-color 0.3s, color 0.3s;
 
     /* Figma styles */
@@ -59,7 +79,7 @@ nav ul a {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
+    line-height: var(--header-height);
 }
 nav a:hover {
     background-color: #f0f0f0;
