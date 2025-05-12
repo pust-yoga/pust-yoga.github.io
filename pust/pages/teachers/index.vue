@@ -17,17 +17,9 @@ onMounted(() => {
   <div class="page-container">
     <h1>MEET THE TEAM</h1>
     <div class="teachers">
-      <div
-        v-for="teacher in teachers"
-        :key="teacher.id"
-        class="teacher-card"
-      >
-        <img
-          :src="teacher.picture"
-          alt="Teacher Picture"
-          class="teacher-image"
-        />
-        <h2>{{ teacher.firstname + " " + teacher.lastname }}</h2>
+      <div v-for="teacher in teachers" :key="teacher.id" class="teacher-card">
+        <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image"/>
+        <h2>{{ teacher.firstname}}</h2>
         <p class="teacher-cv">{{ teacher.CV }}</p>
         <!-- <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink> -->
       </div>
@@ -45,7 +37,7 @@ body {
 <style scoped>
 .page-container {
   padding: 40px;
-  text-align: center; 
+  text-align: left; 
 }
 
 h1 {
@@ -78,12 +70,19 @@ h1 {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 350px; 
+  max-width: 350px;
   margin: 0 auto;
+}
+
+.teacher-card h2,
+.teacher-card p {
+  width: 100%; 
+  text-align: left; 
+  margin-left: 100px;
 }
 
 .teacher-image {
