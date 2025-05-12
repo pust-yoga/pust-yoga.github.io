@@ -1,34 +1,93 @@
 <script setup>
-const { $supabase } = useNuxtApp()
+const { $supabase } = useNuxtApp();
 
-const teachers = ref([])
+const teachers = ref([]);
+
 async function getTeachers() {
-    const { data } = await $supabase.from('teacher').select()
-    teachers.value.push(...data)
+    const { data } = await $supabase.from('teacher').select();
+    teachers.value = data; // Direct assignment to avoid unnecessary array mutations
 }
+
 onMounted(() => {
-    getTeachers()
-})
+    getTeachers();
+});
 </script>
 
-
 <template>
-    <h1>MEET THE TEAM</h1>
-    <ul>
-        <li v-for="teacher in teachers" :key="teacher.id">
-            {{ teacher.firstname + " " + teacher.lastname }}
-            <NuxtLink :to="'/teachers/' + teacher.id">View Profile</NuxtLink>
-        </li>
-    </ul>
+    <div class="page-container">
+        <h1>MEET THE TEAM</h1>
+        <div class="teacher-grid">
+            <div v-for="teacher in teachers" :key="teacher.id" class="teacher-card">
+                <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image">
+                <h2>{{ teacher.firstname + " " + teacher.lastname }}</h2>
+                <p class="teacher-cv">{{ teacher.CV }}</p>
+                <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
 body {
     background-color: var(--background);
+    font-family: Inter, Arial, sans-serif;
+}
+</style>
+
+<style scoped>
+.page-container {
+    padding: 40px;
+    text-align: center;
 }
 
-</style>
-<style scoped>
+h1 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+}
 
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Makes it responsive */
+    gap: 20px;
+    justify-content: center;
+}
 
+.teacher-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teacher-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.teacher-cv {
+    font-size: 16px;
+    color: #555;
+}
+
+.view-profile {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.view-profile:hover {
+    background-color: darken(var(--blue), 10%);
+}
 </style>
