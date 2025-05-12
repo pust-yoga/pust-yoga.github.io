@@ -82,7 +82,7 @@ h1 {
 .teacher-card p {
   width: 100%; 
   text-align: left; 
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
 
 .teacher-image {
