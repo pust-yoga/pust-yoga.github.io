@@ -21,7 +21,7 @@ onMounted(() => {
                 <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image">
                 <h2>{{ teacher.firstname + " " + teacher.lastname }}</h2>
                 <p class="teacher-cv">{{ teacher.CV }}</p>
-                <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink>
+                <!-- <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink> -->
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@ body {
 <style scoped>
 .page-container {
     padding: 40px;
-    text-align: center;
+    text-align: left;
 }
 
 h1 {
@@ -49,15 +49,16 @@ h1 {
 
 .teacher-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Makes it responsive */
+    grid-template-columns: repeat(3, 1fr); /* Makes it responsive */
     gap: 20px;
     justify-content: center;
 }
 
 .teacher-card {
+    width: 75%;
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
@@ -67,14 +68,15 @@ h1 {
 
 .teacher-image {
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 .teacher-cv {
+    line-height: 1.5;
     font-size: 16px;
-    color: #555;
+    color: #000000;
 }
 
 .view-profile {
