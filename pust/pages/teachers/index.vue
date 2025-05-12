@@ -52,13 +52,15 @@ h1 {
     grid-template-columns: repeat(3, 1fr); /* Makes it responsive */
     gap: 20px;
     justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .teacher-card {
     width: 75%;
     background-color: white;
     padding: 20px;
-    border-radius: 25px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
