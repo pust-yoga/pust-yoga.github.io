@@ -36,60 +36,46 @@ body {
 
 <style scoped>
 .page-container {
-  padding: 40px;
-  text-align: left; 
+  padding: 100px;
 }
 
 h1 {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .teachers {
   display: grid;
+  flex-wrap: wrap;
   grid-template-columns: repeat(3, 1fr); 
-  gap: 20px;
+  gap: 60px;
   justify-items: center;
-}
-
-@media (max-width: 768px) {
-  .teachers {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 480px) {
-  .teachers {
-    grid-template-columns: 1fr;
-  }
+  justify-content: center;
 }
 
 .teacher-card {
   background-color: white;
-  padding: 20px;
+  padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left; 
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 350px;
-  margin: 0 auto;
 }
 
 .teacher-card h2,
 .teacher-card p {
   width: 100%; 
   text-align: left; 
-  /* margin-left: 100px; */
+
 }
 
 .teacher-image {
   width: 100%;
-  max-width: 250px;
+  height: auto;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .teacher-cv {
@@ -98,17 +84,11 @@ h1 {
   color: #000;
 }
 
-.view-profile {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: var(--blue);
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+@media (max-width: 768px) { /* Applies when screen width is ≤ 768px */
+  .teachers {
+    grid-template-columns: repeat(1, 1fr); /* Switch to 1 card per row */
+    gap: 30px;
+  }
 }
-.view-profile:hover {
-  background-color: #007acc;
-}
+
 </style>
