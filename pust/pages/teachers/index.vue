@@ -47,7 +47,7 @@ h1 {
 }
 
 .teachers {
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
   grid-template-columns: repeat(3, 1fr); 
   gap: 60px;
@@ -62,7 +62,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 350px;
+  max-width: 250px;
 }
 
 .teacher-card h2,
