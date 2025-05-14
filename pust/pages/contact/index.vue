@@ -8,20 +8,32 @@ const { $supabase } = useNuxtApp();
     <div class="card-container">
       <div class="contact-info">
         <h2>Where to Find Us</h2>
-        <div>
-            <img class="icon-map" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-map.png" />
-            <p>Viale Politecnico 5</p>
-            <p>20123 Milano</p>
-            <p>Italia</p>
-        </div>
-        <div>
-            <img class="icon-phone" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-phone.png" />
+        <div class="contact-details">
+          <div class="contact-address">
+            <img
+              class="icon"
+              src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-map.png"
+              alt="Map icon"
+            />
+            <div class="address-text">
+              <p>Viale Politecnico 5</p>
+              <p>20123 Milano</p>
+              <p>Italia</p>
+            </div>
+          </div>
+          <div class="contact-phone">
+            <img
+              class="icon"
+              src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
+              alt="Phone icon"
+            />
             <p>+39 123 45 678</p>
+          </div>
         </div>
       </div>
       <div class="image-container">
         <img
-          src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//yoga-zen.png"
+          src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/yoga-zen.png"
           alt="Contact Us"
           class="contact-image"
         />
@@ -33,39 +45,43 @@ const { $supabase } = useNuxtApp();
 <style>
 body {
   background-color: var(--background, #f5f5f5);
-  font-family: Inter, Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 </style>
 
 <style scoped>
+
 .page-container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.icon-map,
-.icon-phone {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
 h1 {
   font-size: 48px;
   font-weight: 700;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   margin-bottom: 50px;
+  color: #333;
+}
+
+
+.contact-info h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #555;
 }
 
 .card-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: white;
+  background-color: #ffffff;
   padding: 60px;
   border-radius: 24px;
   width: 90%;
@@ -79,20 +95,31 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%; 
 }
 
-
-.contact-info h2 {
-  font-size: 28px;
-  margin-bottom: 24px;
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.contact-info p {
-  margin: 10px 0;
-  font-size: 18px;
+.contact-address,
+.contact-phone {
   display: flex;
   align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+}
+
+.address-text p,
+.contact-phone p {
+  margin: 2px 0;
+  font-size: 18px;
+  color: #666;
 }
 
 .image-container {
@@ -103,9 +130,18 @@ h1 {
 }
 
 .contact-image {
-  height: 400px;
+  max-height: 400px;
   width: auto;
   border-radius: 10%;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    padding: 40px;
+    gap: 40px;
+  }
+
 }
 </style>
