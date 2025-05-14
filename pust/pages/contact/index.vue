@@ -26,7 +26,7 @@ const { $supabase } = useNuxtApp();
 
 <style>
 body {
-  background-color: var(--background);
+  background-color: var(--background, #f5f5f5);
   font-family: Inter, Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -56,8 +56,9 @@ h1 {
   padding: 60px;
   border-radius: 24px;
   width: 90%;
-  height: auto;
+  max-width: 1000px;
   gap: 60px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info {
@@ -72,6 +73,8 @@ h1 {
 .contact-info p {
   margin: 10px 0;
   font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 .image-container {
@@ -82,7 +85,8 @@ h1 {
 }
 
 .contact-image {
-  height: 450px;
+  height: 400px;
+  width: auto;
   border-radius: 10%;
   object-fit: cover;
 }
