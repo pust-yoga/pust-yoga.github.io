@@ -1,3 +1,7 @@
+<script setup>
+const { $supabase } = useNuxtApp();
+</script>
+
 <template>
   <div class="page-container">
     <h1>CONTACT US</h1>
@@ -10,51 +14,75 @@
         <p>+39 123 45 678</p>
       </div>
       <div class="image-container">
-        <img src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//yoga-zen.png" 
-             alt="Contact Us" class="contact-image"/>
+        <img
+          src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//yoga-zen.png"
+          alt="Contact Us"
+          class="contact-image"
+        />
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
 body {
   background-color: var(--background);
   font-family: Inter, Arial, sans-serif;
-  display: flex;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
+</style>
 
+<style scoped>
 .page-container {
-  padding: 100px;
-  text-align: left;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 48px;
+  font-weight: 700;
   letter-spacing: 6px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .card-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: white;
-  border-radius: 15px;
   padding: 60px;
+  border-radius: 24px;
+  width: 90%;
+  height: auto;
+  gap: 60px;
 }
 
 .contact-info {
-  text-align: left;
+  flex: 1;
+}
+
+.contact-info h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 18px;
 }
 
 .image-container {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .contact-image {
+  height: 450px;
   border-radius: 10%;
   object-fit: cover;
 }
