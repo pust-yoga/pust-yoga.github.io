@@ -3,8 +3,8 @@ const { $supabase } = useNuxtApp();
 </script>
 
 <template>
+  <h1>CONTACT US</h1>
   <div class="page-container">
-    <h1>CONTACT US</h1>
     <div class="card-container">
       <div class="contact-info">
         <div class="contact-details-title">
@@ -70,6 +70,8 @@ h1 {
   letter-spacing: 4px;
   margin-bottom: 50px;
   color: #333;
+  padding: 60px; 
+  margin-bottom: 20px;
 }
 
 .contact-details-title {
