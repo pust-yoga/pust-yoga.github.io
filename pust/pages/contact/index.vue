@@ -7,7 +7,9 @@ const { $supabase } = useNuxtApp();
     <h1>CONTACT US</h1>
     <div class="card-container">
       <div class="contact-info">
-        <h2>Where to Find Us</h2>
+        <div class="contact-details-title">
+            <h2>Where to Find Us</h2>
+        </div>
         <div class="contact-details">
           <div class="contact-address">
             <img
@@ -70,11 +72,17 @@ h1 {
   color: #333;
 }
 
+.contact-details-title {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 
 .contact-info h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 24px;
-  color: #555;
+  color: #000000;
+  
 }
 
 .card-container {
@@ -91,16 +99,17 @@ h1 {
 }
 
 .contact-info {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
+  align-items: center; 
+  justify-content: center; 
+  height: 100%; 
 }
 
 .contact-address,
