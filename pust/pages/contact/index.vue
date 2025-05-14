@@ -63,7 +63,12 @@ h1 {
 
 .contact-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; 
 }
+
 
 .contact-info h2 {
   font-size: 28px;
