@@ -8,10 +8,16 @@ const { $supabase } = useNuxtApp();
     <div class="card-container">
       <div class="contact-info">
         <h2>Where to Find Us</h2>
-        <p>Viale Politecnico 5</p>
-        <p>20123 Milano</p>
-        <p>Italia</p>
-        <p>+39 123 45 678</p>
+        <div>
+            <img class="icon-map" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-map.png" />
+            <p>Viale Politecnico 5</p>
+            <p>20123 Milano</p>
+            <p>Italia</p>
+        </div>
+        <div>
+            <img class="icon-phone" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-phone.png" />
+            <p>+39 123 45 678</p>
+        </div>
       </div>
       <div class="image-container">
         <img
@@ -39,6 +45,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.icon-map,
+.icon-phone {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 h1 {
