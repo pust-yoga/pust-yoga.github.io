@@ -1,177 +1,224 @@
 <script setup>
-const { $supabase } = useNuxtApp()
-const route = useRoute()
+import { ref, onMounted } from 'vue';
 
-const teacher = ref(null)
+const { $supabase } = useNuxtApp();
+const route = useRoute();
+
+const teacher = ref(null);
+
 async function getTeacher() {
-    const { data } = await $supabase
-        .from('teacher')
-        .select()
-        .eq('id', route.params.teacher)
-        .single()
-    teacher.value = data
+  const { data } = await $supabase
+    .from('teacher')
+    .select()
+    .eq('id', route.params.teacher)
+    .single();
+  teacher.value = data;
 }
+
 onMounted(() => {
-    getTeacher()
-})
+  getTeacher();
+});
+
+function navigateToTeacher(id) {
+  const router = useRouter();
+  router.push(`/teachers/${id}`);
+}
 
 function navigateToPrevious() {
-    const previousId = parseInt(route.params.teacher) - 1;
-    if (previousId > 0) {
-        navigateToTeacher(previousId);
-    }
+  const previousId = parseInt(route.params.teacher) - 1;
+  if (previousId > 0) {
+    navigateToTeacher(previousId);
+  }
 }
 
 function navigateToNext() {
-    const nextId = parseInt(route.params.teacher) + 1;
-    navigateToTeacher(nextId);
-}
-
-function navigateToTeacher(id) {
-    const router = useRouter();
-    router.push(`/teachers/${id}`);
+  const nextId = parseInt(route.params.teacher) + 1;
+  navigateToTeacher(nextId);
 }
 </script>
 
-
 <template>
-    <div class="page-container">
-        <h1 v-if="teacher" class="page-title">{{ teacher.firstname?.toUpperCase() || 'UNKNOWN' }}</h1>
-        <div class="card-wrapper">
-            <div class="card-container" v-if="teacher">
-                <div class="card-content">
-                    <img :src="teacher.picture || '/default-placeholder.png'" alt="Teacher Picture" class="teacher-image">
-                    <div class="teacher-info">
-                        <h2>Meet {{ teacher.firstname || 'Unknown' }}!</h2>
-                        <p>{{ teacher.CV || 'No CV available.' }}</p>
-                        <div class="contact-details">
-                            <div class="contact-phone">
-                                <img
-                                    class="icon"
-                                    src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
-                                    alt="Phone icon"
-                                />
-                                <p>{{ teacher.phone || 'Not provided' }}</p>
-                            </div>
-                            <div class="contact-email">
-                                <img
-                                    class="icon"
-                                    src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png"
-                                    alt="Email icon"
-                                />
-                                <p>{{ teacher.email || 'Not provided' }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-navigation">
-                    <button @click="navigateToPrevious">Previous</button>
-                    <button @click="navigateToNext">Next</button>
-                </div>
+  <div class="page-container">
+    <!-- Page title appears only when teacher is loaded -->
+    <h1 v-if="teacher" class="page-title">
+      {{ teacher.firstname?.toUpperCase() || 'UNKNOWN' }}
+    </h1>
+    <div class="card-wrapper">
+      <div class="card-container" v-if="teacher">
+        <div class="card-content">
+          <img
+            :src="teacher.picture || '/default-placeholder.png'"
+            alt="Teacher Picture"
+            class="teacher-image"
+          />
+          <div class="teacher-info">
+            <h2>Meet {{ teacher.firstname || 'Unknown' }}!</h2>
+            <p>{{ teacher.CV || 'No CV available.' }}</p>
+            <div class="contact-details">
+              <div class="contact-phone">
+                <img
+                  class="icon"
+                  src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
+                  alt="Phone icon"
+                />
+                <p>{{ teacher.phone || 'Not provided' }}</p>
+              </div>
+              <div class="contact-email">
+                <img
+                  class="icon"
+                  src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png"
+                  alt="Email icon"
+                />
+                <p>{{ teacher.email || 'Not provided' }}</p>
+              </div>
             </div>
-            <div v-else>
-                <p>Loading teacher information...</p>
-            </div>
+          </div>
         </div>
+        <div class="card-navigation">
+          <button @click="navigateToPrevious" class="nav-btn">
+            <svg
+              class="arrow-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"
+              />
+            </svg>
+            <span class="nav-text">Previous Teacher</span>
+          </button>
+          <button @click="navigateToNext" class="nav-btn">
+            <span class="nav-text">Next Teacher</span>
+            <svg
+              class="arrow-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6.5 6a.5.5 0 0 1 0 .708l-6.5 6a.5.5 0 0 1-.708-.708L10.793 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div v-else>
+        <p>Loading teacher information...</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <style>
 body {
   background-color: var(--background);
-  font-family: Inter, Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
 }
 </style>
 
 <style scoped>
 .page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    height: 100vh;
-    padding: 100px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  padding: 40px;
 }
 
 .page-title {
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .card-wrapper {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .card-container {
-    background: white;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 900px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background: white;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 900px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-content {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .teacher-image {
-    width: auto;
-    height: 350px;
-    border-radius: 10%;
-    object-fit: cover;
+  width: auto;
+  height: 350px;
+  border-radius: 10%;
+  object-fit: cover;
 }
 
 .teacher-info {
-    flex: 1;
+  flex: 1;
+}
+
+.teacher-info h2 {
+  margin-bottom: 16px;
 }
 
 .contact-details {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
 }
 
-.contact-phone, .contact-email {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.contact-phone,
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .icon {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .card-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-button {
-    background: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: blue;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-button:hover {
-    background: #0056b3;
+.arrow-icon {
+  width: 20px;
+  height: 20px;
 }
 </style>
