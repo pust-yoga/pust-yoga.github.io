@@ -124,14 +124,14 @@ h1 {
 .image-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .contact-image {
   max-height: 400px;
   width: auto;
-  border-radius: 10%;
+  border-radius: 16px;
   object-fit: cover;
 }
 

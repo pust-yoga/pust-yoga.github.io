@@ -17,19 +17,20 @@ onMounted(() => {
   <div class="page-container">
     <h1>MEET THE TEAM</h1>
     <div class="teachers">
-      <div v-for="teacher in teachers" :key="teacher.id" class="teacher-card">
-        <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image"/>
-        <h2>{{ teacher.firstname}}</h2>
-        <p class="teacher-cv">{{ teacher.CV }}</p>
-        <!-- <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink> -->
-      </div>
+      <NuxtLink v-for="teacher in teachers" :key="teacher.id" class="teacher-card" :to="'/teachers/' + teacher.id">
+        <div>
+          <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image"/>
+          <h2>{{ teacher.firstname}}</h2>
+          <p class="teacher-cv">{{ teacher.CV }}</p>
+        </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <style scoped>
 .page-container {
-  padding: 100px;
+  padding: 50px;
 }
 
 h1 {
@@ -37,6 +38,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 6px;
   margin-bottom: 60px;
+  padding-left: 50px;
 }
 
 .teachers {
@@ -56,13 +58,25 @@ h1 {
   flex-direction: column;
   align-items: center;
   max-width: 250px;
+  text-decoration: none; /* counteract anchor tag */
+  color: unset; /* counteract anchor tag */
 }
 
 .teacher-card h2,
 .teacher-card p {
   width: 100%; 
   text-align: left; 
-
+}
+.teacher-card h2 {
+  color: #2B2B65;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+.teacher-card p {
+  color: #2B2B65;
+  font-size: 14px;
+  line-height: 150%;
 }
 
 .teacher-image {
