@@ -27,13 +27,6 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
-body {
-  background-color: var(--background);
-  font-family: Inter, Arial, sans-serif;
-}
-</style>
-
 <style scoped>
 .page-container {
   padding: 100px;

@@ -6,15 +6,6 @@ const { $supabase } = useNuxtApp();
   <h1>ABOUT US</h1>
 </template>
 
-<style>
-body {
-  background-color: var(--background, #f5f5f5);
-  font-family: 'Inter', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-</style>
-
 <style scoped>
 
 h1 {
