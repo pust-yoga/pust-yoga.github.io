@@ -8,7 +8,7 @@ const { $supabase } = useNuxtApp();
     <div class="card-container">
       <div class="contact-info">
         <div class="contact-details-title">
-            <h2>Where to Find Us</h2>
+          <h2>Where to Find Us</h2>
         </div>
         <div class="contact-details">
           <div class="contact-address">
@@ -54,7 +54,6 @@ body {
 </style>
 
 <style scoped>
-
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -70,7 +69,7 @@ h1 {
   letter-spacing: 4px;
   margin-bottom: 50px;
   color: #333;
-  padding: 60px; 
+  padding: 60px;
   margin-bottom: 20px;
 }
 
@@ -79,12 +78,10 @@ h1 {
   padding-top: 0;
 }
 
-
 .contact-info h2 {
   font-size: 32px;
   margin-bottom: 24px;
   color: #000000;
-  
 }
 
 .card-container {
@@ -109,9 +106,9 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  align-items: center; 
-  justify-content: center; 
-  height: 100%; 
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .contact-address,
@@ -150,9 +147,43 @@ h1 {
 @media only screen and (max-width: 768px) {
   .card-container {
     flex-direction: column;
-    padding: 40px;
-    gap: 40px;
+    padding: 30px;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
   }
 
+  h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    padding: 30px;
+  }
+
+  .contact-info h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .contact-details {
+    gap: 30px;
+  }
+
+  .contact-address,
+  .contact-phone {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .icon {
+    margin-bottom: 10px;
+  }
+
+  .contact-image {
+    max-height: 250px;
+    width: 80%;
+    border-radius: 8%;
+  }
 }
 </style>
