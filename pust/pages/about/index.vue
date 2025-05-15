@@ -3,7 +3,7 @@ const { $supabase } = useNuxtApp();
 </script>
 
 <template>
-  <h1>CONTACT US</h1>
+  <h1>ABOUT US</h1>
 </template>
 
 <style>
