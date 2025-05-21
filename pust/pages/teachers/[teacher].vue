@@ -24,6 +24,11 @@ function navigateToTeacher(id) {
   router.push(`/teachers/${id}`);
 }
 
+function navigateToTeachers() {
+  const router = useRouter();
+  router.push('/teachers');
+}
+
 function navigateToPrevious() {
   const previousId = parseInt(route.params.teacher) - 1;
   if (previousId > 0) {
@@ -43,32 +48,39 @@ function navigateToNext() {
     <h1 v-if="teacher" class="page-title">
       {{ teacher.firstname?.toUpperCase() || 'UNKNOWN' }}
     </h1>
+    <div class="back-link">
+      <button @click="navigateToTeachers" class="nav-btn-2">
+            <svg
+              class="arrow-icon-2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"
+              />
+            </svg>
+            <span class="nav-text">Back to Teachers</span>
+          </button>
+    </div>
     <div class="card-wrapper">
       <div class="card-container" v-if="teacher">
         <div class="card-content">
-          <img
-            :src="teacher.picture || '/default-placeholder.png'"
-            alt="Teacher Picture"
-            class="teacher-image"
-          />
+          <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image" />
           <div class="teacher-info">
             <h2>Meet {{ teacher.firstname || 'Unknown' }}!</h2>
             <p>{{ teacher.CV || 'No CV available.' }}</p>
             <div class="contact-details">
               <div class="contact-phone">
                 <img
-                  class="icon"
-                  src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
-                  alt="Phone icon"
-                />
+                  class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png" alt="Phone icon" />
                 <p>{{ teacher.phone || 'Not provided' }}</p>
               </div>
               <div class="contact-email">
-                <img
-                  class="icon"
-                  src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png"
-                  alt="Email icon"
-                />
+                <img class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png" alt="Email icon" />
                 <p>{{ teacher.email || 'Not provided' }}</p>
               </div>
             </div>
@@ -125,23 +137,13 @@ body {
 
 <style scoped>
 .page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-  padding: 40px;
+  padding: 100px;
 }
 
 .page-title {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 6px;
-  text-transform: uppercase;
-  position: absolute;
-  top: 20px;
-  left: 20px;
 }
 
 .card-wrapper {
@@ -152,9 +154,7 @@ body {
 
 .card-container {
   background: white;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 900px;
+  border-radius: 5%;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -169,9 +169,9 @@ body {
 }
 
 .teacher-image {
-  width: auto;
-  height: 350px;
-  border-radius: 10%;
+  width: 500px;
+  height: auto;
+  border-radius: 5%;
   object-fit: cover;
 }
 
@@ -211,14 +211,31 @@ body {
   align-items: center;
   gap: 8px;
   color: blue;
+  background-color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
+.nav-btn-2 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #FFF1D5E5;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.arrow-icon-2 {
+  width: 10px;
+  height: 10px;
+}
+
 .arrow-icon {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 </style>
