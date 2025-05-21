@@ -288,9 +288,8 @@ body {
 
 .activity-card {
   background: white;
-  padding: 20px;
+  padding: 60px;
   border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
