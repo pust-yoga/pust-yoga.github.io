@@ -7,13 +7,29 @@ const route = useRoute();
 const teacher = ref(null);
 
 async function getTeacher() {
-  const { data } = await $supabase
+  const { data, error } = await $supabase
     .from('teacher')
-    .select()
+    .select(`
+      *,
+      teacher_activity (
+        *,
+        activity (*)
+      )
+    `)
     .eq('id', route.params.teacher)
     .single();
-  teacher.value = data;
+
+  if (error) {
+    console.error('Error fetching teacher:', error);
+  } else {
+    // Flatten activities from teacher_activity for easier usage
+    teacher.value = {
+      ...data,
+      activities: data.teacher_activity.map((ta) => ta.activity),
+    };
+  }
 }
+
 
 onMounted(() => {
   getTeacher();
@@ -129,6 +145,18 @@ function navigateToNext() {
   <div v-if="teacher" class="page-2-title">
      {{ teacher.firstname?.toUpperCase()+"'S CLASSES" || 'UNKNOWN' }}
   </div>
+  <div v-if="teacher?.activities?.length" class="activity-grid">
+    <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card">
+      <div class="image-container">
+        <img :src="activity.picture" alt="Activity Image" class="activity-image" />
+        <span class="expertise-level">{{ activity.expertise_level }}</span>
+      </div>
+      <h3 class="activity-title">{{ activity.name }}</h3>
+      <p class="activity-description">{{ activity.description }}</p>
+      <p class="activity-date">{{ activity.date }}</p>
+    </div>
+  </div>
+
 
   </div>
 </template>
@@ -249,5 +277,60 @@ body {
 .arrow-icon {
   width: 30px;
   height: 30px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.activity-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.activity-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.expertise-level {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.activity-title {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.activity-description {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.activity-date {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
 }
 </style>
