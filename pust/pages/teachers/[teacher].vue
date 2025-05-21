@@ -149,11 +149,27 @@ function navigateToNext() {
     <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card">
       <div class="image-container">
         <img :src="activity.picture" alt="Activity Image" class="activity-image" />
-        <span class="expertise-level">{{ activity.expertise_level }}</span>
+        <span
+          class="expertise-level"
+          :class="{
+            advanced: activity.expertise_level === 'Advanced',
+            intermediate: activity.expertise_level === 'Intermediate',
+            beginner: activity.expertise_level === 'Beginner'
+          }"
+        >
+          {{ activity.expertise_level.toUpperCase() }}
+        </span>
       </div>
       <h3 class="activity-title">{{ activity.name }}</h3>
       <p class="activity-description">{{ activity.description }}</p>
-      <p class="activity-date">{{ activity.date }}</p>
+      <div class="activity-date-container">
+        <img
+          src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-calender.png"
+          alt="Calendar icon"
+          class="calendar-icon"
+        />
+        <p class="activity-date">{{ activity.date }}</p>
+      </div>
     </div>
   </div>
 
@@ -319,6 +335,19 @@ body {
   font-size: 14px;
 }
 
+.expertise-level.advanced {
+  background-color: #e74c3c; /* red */
+}
+
+.expertise-level.intermediate {
+  background-color: #e67e22; /* orange */
+}
+
+.expertise-level.beginner {
+  background-color: #2ecc71; /* green */
+}
+
+
 .activity-title {
   margin-top: 15px;
   font-size: 18px;
@@ -332,8 +361,20 @@ body {
 }
 
 .activity-date {
-  margin-top: 10px;
   font-size: 14px;
   color: #888;
 }
+
+.activity-date-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.calendar-icon {
+  width: 18px;
+  height: 18px;
+}
+
 </style>
