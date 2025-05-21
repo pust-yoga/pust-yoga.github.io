@@ -125,6 +125,11 @@ function navigateToNext() {
         <p>Loading teacher information...</p>
       </div>
     </div>
+
+  <div v-if="teacher" class="page-2-title">
+     {{ teacher.firstname?.toUpperCase()+"'S CLASSES" || 'UNKNOWN' }}
+  </div>
+
   </div>
 </template>
 
@@ -144,6 +149,13 @@ body {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 6px;
+}
+
+.page-2-title {
+  font-size: 40px;
+  /* font-weight: 600; */
+  letter-spacing: 6px;
+  margin-top: 100px;
 }
 
 .card-wrapper {
@@ -224,14 +236,14 @@ body {
   gap: 4px;
   background-color: #FFF1D5E5;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .arrow-icon-2 {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 .arrow-icon {
