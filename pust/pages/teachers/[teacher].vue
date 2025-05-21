@@ -295,14 +295,18 @@ body {
 .image-container {
   position: relative;
   width: 100%;
+  aspect-ratio: 1 / 1; /* Forces square container */
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .activity-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the square */
   border-radius: 10px;
-  object-fit: cover;
 }
+
 
 .expertise-level {
   position: absolute;
