@@ -143,6 +143,7 @@ const handleFilterChange = (level) => {
   font-family: 14px;
   text-transform: uppercase;
   user-select: none;
+  cursor: pointer;
 }
 .filter label:has(input:checked) {
   background-color: var(--color);

@@ -3,12 +3,16 @@ defineProps({
   activity: {
     type: Object,
     required: true
+  },
+  simple: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
 
 <template>
-  <NuxtLink class="activity-card" :to="'/activities/' + activity.id">
+  <NuxtLink class="activity-card" :class="{simple: simple}" :to="'/activities/' + activity.id">
     <div>
       <img :src="activity.picture" alt="Activity Picture" class="activity-image"/>
       <h2>{{ activity.name}}</h2>
@@ -23,7 +27,7 @@ defineProps({
       >
         {{ activity.expertise_level }}
       </div>
-      <div class="activity-date">
+      <div v-if="!simple" class="activity-date">
         <img src="/calendar_icon.png" alt=""> {{ activity.date }}
       </div>
     </div>
@@ -43,6 +47,9 @@ defineProps({
   color: unset; /* counteract anchor tag */
   position: relative;
   gap: 10px;
+}
+.activity-card.simple {
+  padding: 30px 20px;
 }
 
 .activity-card h2,

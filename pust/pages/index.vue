@@ -1,3 +1,16 @@
+<script setup>
+const { $supabase } = useNuxtApp()
+
+const activities = ref([])
+async function getActivities() {
+    const { data } = await $supabase.from('activity').select().filter('highlighted', 'eq', true)
+    activities.value.push(...data)
+}
+onMounted(() => {
+    getActivities()
+})
+</script>
+
 <template>
     <section class="home">
         <h1>BREATHE. MOVE. CONNECT.</h1>
@@ -23,7 +36,14 @@
     </section>
     <section class="bigcard recommended">
         <div>
-            <h1>Recommended Activities</h1>
+            <h1>Highlighted Activities</h1>
+            <h2>Explore yoga practices tailored for all skill levels</h2>
+            <div class="card-container">
+                <ActivityCard v-for="activity in activities" :key="activity.id" :activity="activity" simple />
+            </div>
+            <div style="padding-left: 50px;">
+                <NuxtLink to="/activities" class="link">View All Activities</NuxtLink>
+            </div>
         </div>
     </section>
     <section class="bigcard heads">
@@ -174,11 +194,42 @@ section.home {
 }
 
 .recommended {
-    background-color: unset;
+    background-color: #CAF0D9;
+}
+
+.recommended > div {
+    flex-direction: column;
+}
+.recommended h1 {
+    color: #2E3A59;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 1.8px;
+    margin: 0;
+    padding-left: 50px;
+}
+
+.recommended h2 {
+    color: #445277;
+    font-size: 16px;
+    line-height: 150%; 
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 50px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-items: center;
+  justify-content: center;
 }
 
 .heads {
-    background-color: #CAF0D9;
+    background-color: unset;
     overflow: hidden;
 }
 

@@ -68,6 +68,7 @@ body {
     padding: 15px 50px;
     border-radius: 8px;
     background: #D49277;
+    display: inline-block;
 }
 
 </style>
