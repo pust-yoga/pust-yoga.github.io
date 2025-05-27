@@ -10,6 +10,7 @@
             <li><NuxtLink to="/contact">CONTACT US</NuxtLink></li>
         </ul>
     </nav>
+    <div class="nav-margin"></div>
     <NuxtPage />
     <footer>
         <h2>PUST YOGA</h2>
@@ -105,10 +106,16 @@ body {
 nav {
     display: flex;
     flex-direction: row;
-    position: relative;
+    position: fixed;
     height: var(--header-height);
     padding: 0 20px;
     background-color: var(--header-color);
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+.nav-margin {
+    height: var(--header-height);
 }
 nav img {
     height: var(--header-height);
