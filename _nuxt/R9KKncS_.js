@@ -1,1 +1,0 @@
-import{_ as e,j as s,c as t,o as a}from"./Th7uIIh0.js";const c={__name:"index",setup(o){const{$supabase:_}=s();return(n,p)=>(a(),t("h1",null,"ABOUT US"))}},u=e(c,[["__scopeId","data-v-77b2ee30"]]);export{u as default};
