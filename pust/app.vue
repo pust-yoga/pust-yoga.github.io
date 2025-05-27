@@ -98,6 +98,10 @@ body {
 </style>
 
 <style scoped>
+.router-link-active { /* Nuxt applies this class to the active navigation link */
+  font-weight: 700;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -105,9 +109,6 @@ nav {
     height: var(--header-height);
     padding: 0 20px;
     background-color: var(--header-color);
-}
-nav a {
-    transition: background-color 0.3s, color 0.3s;
 }
 nav img {
     height: var(--header-height);
@@ -135,10 +136,6 @@ nav ul a {
     font-style: normal;
     font-weight: 400;
     line-height: var(--header-height);
-}
-nav a:hover {
-    background-color: #f0f0f0;
-    color: #000;
 }
 
 footer {

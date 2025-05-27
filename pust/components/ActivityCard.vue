@@ -52,6 +52,10 @@ defineProps({
   padding: 30px 20px;
   border: none;
 }
+.activity-card.simple .activity-level {
+  top: 40px;
+  left: 30px;
+}
 
 .activity-card h2,
 .activity-card p {

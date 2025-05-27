@@ -41,7 +41,7 @@ onMounted(() => {
             <div class="card-container">
                 <ActivityCard v-for="activity in activities" :key="activity.id" :activity="activity" simple />
             </div>
-            <div style="padding-left: 50px;">
+            <div>
                 <NuxtLink to="/activities" class="link">View All Activities</NuxtLink>
             </div>
         </div>
@@ -202,6 +202,7 @@ section.home {
 
 .recommended > div {
     flex-direction: column;
+    padding: 50px 70px;
 }
 .recommended h1 {
     color: #2E3A59;
@@ -210,7 +211,7 @@ section.home {
     line-height: 150%;
     letter-spacing: 1.8px;
     margin: 0;
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
 .recommended h2 {
@@ -220,7 +221,7 @@ section.home {
     letter-spacing: 0.8px;
     font-weight: 400;
     margin: 0;
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
 .card-container {
@@ -228,7 +229,7 @@ section.home {
   flex-wrap: wrap;
   gap: 20px;
   justify-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .heads {
