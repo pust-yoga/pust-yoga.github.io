@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink class="activity-card" :class="{simple: simple}" :to="'/activities/' + activity.id">
+  <NuxtLink class="activity-card card-hover" :class="{simple: simple}" :to="'/activities/' + activity.id">
     <div>
       <img :src="activity.picture" alt="Activity Picture" class="activity-image"/>
       <h2>{{ activity.name}}</h2>
@@ -36,7 +36,7 @@ defineProps({
 
 <style scoped>
 .activity-card {
-  background-color: white;
+  background: white;
   padding: 50px 50px 80px 50px;
   border-radius: 16px;
   display: flex;
@@ -50,6 +50,7 @@ defineProps({
 }
 .activity-card.simple {
   padding: 30px 20px;
+  border: none;
 }
 
 .activity-card h2,

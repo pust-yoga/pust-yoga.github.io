@@ -140,10 +140,16 @@ const handleFilterChange = (level) => {
   color: var(--color);
   line-height: 50px;
   border-radius: 8px;
-  font-family: 14px;
+  font-size: 14px;
   text-transform: uppercase;
   user-select: none;
   cursor: pointer;
+}
+.filter label:hover {
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05) inset;
+  padding-top: 3px;
+  line-height: 47px;
+  
 }
 .filter label:has(input:checked) {
   background-color: var(--color);

@@ -146,6 +146,9 @@ section.home {
 .bigcard .link {
     background-color: #8BAF70;
 }
+.bigcard .link:hover {
+    background-color: #628B43;
+}
 
 .welcome {
     background-color: #BDDDE4;
@@ -223,9 +226,9 @@ section.home {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 20px;
   justify-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .heads {

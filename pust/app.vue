@@ -67,8 +67,32 @@ body {
     text-decoration: none;
     padding: 15px 50px;
     border-radius: 8px;
-    background: #D49277;
+    background-color: #D49277;
     display: inline-block;
+    transition: background-color .3s;
+}
+.link:hover {
+    background-color: #CB765A;
+}
+@property --card-gradient-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: white;
+}
+@property --card-gradient-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: white;
+}
+.card-hover {
+    background: linear-gradient(var(--card-gradient-1), var(--card-gradient-2)) !important;
+    transition: --card-gradient-1 0.3s, --card-gradient-2 0.3s, border 0.3s;
+    border: 1px solid transparent;
+}
+.card-hover:hover {
+    --card-gradient-1: #F5F8FE;
+    --card-gradient-2: #E3ECFF;
+    border: 1px solid #597ED1;
 }
 
 </style>
@@ -81,6 +105,9 @@ nav {
     height: var(--header-height);
     padding: 0 20px;
     background-color: var(--header-color);
+}
+nav a {
+    transition: background-color 0.3s, color 0.3s;
 }
 nav img {
     height: var(--header-height);
@@ -101,7 +128,6 @@ nav ul a {
     display: inline-block;
     text-decoration: none;
     padding: 0 20px;
-    transition: background-color 0.3s, color 0.3s;
 
     /* Figma styles */
     color: var(--blue);
