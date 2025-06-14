@@ -30,7 +30,6 @@ onMounted(() => {
 <style>
 body {
   background-color: var(--background);
-  font-family: Inter, Arial, sans-serif;
 }
 </style>
 
@@ -43,12 +42,13 @@ body {
 }
 
 h1 {
+  margin-bottom: 50px;
+  color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
   font-size: 40px;
-  margin-bottom: 50px;
-  color: #271E0B;
-  line-height: 150%;
-  letter-spacing: 0%;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 60px */
 }
 
 .teachers {
@@ -68,27 +68,35 @@ h1 {
   flex-direction: column;
   align-items: center;
   max-width: 250px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 }
 
 .teacher-card h2 {
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.8px;
+
   width: 100%; 
   text-align: left; 
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 150%;
-  letter-spacing: 5%;
   text-transform: uppercase;
 }
 
 .teacher-card p {
-  width: 100%; 
-  text-align: left; 
+  color: var(--Text-on-white, #445277);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  line-height: 150%;
-  letter-spacing: 5%;
-  color: #445277
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
+
+
+  width: 100%; 
+  text-align: left;
 }
 
 .teacher-image {
