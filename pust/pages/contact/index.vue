@@ -13,6 +13,7 @@ const { $supabase } = useNuxtApp();
         <div class="contact-details">
           <div class="contact-address">
             <img
+              loading="lazy"
               class="icon"
               src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-map.png"
               alt="Map icon"
@@ -25,6 +26,7 @@ const { $supabase } = useNuxtApp();
           </div>
           <div class="contact-phone">
             <img
+              loading="lazy"
               class="icon"
               src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
               alt="Phone icon"
@@ -35,6 +37,7 @@ const { $supabase } = useNuxtApp();
       </div>
       <div class="image-container">
         <img
+          loading="lazy"
           src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/yoga-zen.png"
           alt="Contact Us"
           class="contact-image"

@@ -18,7 +18,7 @@ onMounted(() => {
     <h1>MEET THE TEAM</h1>
     <div class="teachers">
       <div v-for="teacher in teachers" :key="teacher.id" class="teacher-card">
-        <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image"/>
+        <img :src="teacher.picture" alt="Teacher Picture" loading="lazy" class="teacher-image"/>
         <h2>{{ teacher.firstname}}</h2>
         <p class="teacher-cv">{{ teacher.CV }}</p>
         <!-- <NuxtLink :to="'/teachers/' + teacher.id" class="view-profile">View Profile</NuxtLink> -->

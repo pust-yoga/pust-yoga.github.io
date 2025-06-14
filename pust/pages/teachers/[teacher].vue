@@ -90,18 +90,19 @@ function navigateToNext() {
     <div class="card-wrapper">
       <div class="card-container" v-if="teacher">
         <div class="card-content">
-          <img :src="teacher.picture" alt="Teacher Picture" class="teacher-image" />
+          <img :src="teacher.picture" alt="Teacher Picture" loading="lazy" class="teacher-image" />
           <div class="teacher-info">
             <h2>Meet {{ teacher.firstname || 'Unknown' }}!</h2>
             <p>{{ teacher.CV || 'No CV available.' }}</p>
             <div class="contact-details">
               <div class="contact-phone">
                 <img
+                  loading="lazy"
                   class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png" alt="Phone icon" />
                 <p class="contact-details">{{ teacher.phone || 'Not provided' }}</p>
               </div>
               <div class="contact-email">
-                <img class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png" alt="Email icon" />
+                <img loading="lazy" class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png" alt="Email icon" />
                 <p class="contact-details">{{ teacher.email || 'Not provided' }}</p>
               </div>
             </div>
@@ -137,7 +138,7 @@ function navigateToNext() {
   <div v-if="teacher?.activities?.length" class="activity-grid">
     <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card">
       <div class="image-container">
-        <img :src="activity.picture" alt="Activity Image" class="activity-image" />
+        <img :src="activity.picture" alt="Activity Image" loading="lazy" class="activity-image" />
         <span
           class="expertise-level"
           :class="{
@@ -153,6 +154,7 @@ function navigateToNext() {
       <p class="activity-description">{{ activity.description }}</p>
       <div class="activity-date-container">
         <img
+          loading="lazy"
           src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon-calender.png"
           alt="Calendar icon"
           class="calendar-icon"
