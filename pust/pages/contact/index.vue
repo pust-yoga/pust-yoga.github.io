@@ -57,21 +57,24 @@ body {
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 h1 {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 50px;
-  color: #333;
-  padding: 60px;
-  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  letter-spacing: 0%;
+  color: #271E0B;
+  padding: 50px;
+  line-height: 150%;
 }
+
 
 .contact-details-title {
   margin-top: 0;
@@ -79,8 +82,11 @@ h1 {
 }
 
 .contact-info h2 {
-  font-size: 32px;
-  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 175%;
+  letter-spacing: 5%;
   color: #000000;
 }
 
@@ -89,12 +95,11 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   background-color: #ffffff;
-  padding: 60px;
-  border-radius: 24px;
+  padding: 50px;
+  border-radius: 16px;
   width: 90%;
   max-width: 1000px;
-  gap: 60px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  gap: 50px;
 }
 
 .contact-info {
@@ -103,6 +108,9 @@ h1 {
 }
 
 .contact-details {
+  font-family: 'Inter', sans-serif;
+  line-height: 150%; 
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -140,7 +148,7 @@ h1 {
 .contact-image {
   max-height: 400px;
   width: auto;
-  border-radius: 10%;
+  border-radius: 16px;
   object-fit: cover;
 }
 
