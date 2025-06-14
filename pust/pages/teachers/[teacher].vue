@@ -84,7 +84,7 @@ function navigateToNext() {
                 d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"
               />
             </svg>
-            <span class="nav-text">Back to Teachers</span>
+            <span class="nav-text-1">Back to Teachers</span>
           </button>
     </div>
     <div class="card-wrapper">
@@ -98,11 +98,11 @@ function navigateToNext() {
               <div class="contact-phone">
                 <img
                   class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png" alt="Phone icon" />
-                <p>{{ teacher.phone || 'Not provided' }}</p>
+                <p class="contact-details">{{ teacher.phone || 'Not provided' }}</p>
               </div>
               <div class="contact-email">
                 <img class="icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-email.png" alt="Email icon" />
-                <p>{{ teacher.email || 'Not provided' }}</p>
+                <p class="contact-details">{{ teacher.email || 'Not provided' }}</p>
               </div>
             </div>
           </div>
@@ -113,12 +113,12 @@ function navigateToNext() {
               <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"/>
               </svg>
-              <span class="nav-text">Previous Teacher</span>
+              <span class="nav-text-2">Previous Teacher</span>
             </button>
           </div>
           <div style="flex:1;display:flex;justify-content:flex-end;">
             <button v-if="hasNext" @click="navigateToNext" class="nav-btn">
-              <span class="nav-text">Next Teacher</span>
+              <span class="nav-text-2">Next Teacher</span>
               <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6.5 6a.5.5 0 0 1 0 .708l-6.5 6a.5.5 0 0 1-.708-.708L10.793 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
               </svg>
@@ -169,26 +169,46 @@ function navigateToNext() {
 <style>
 body {
   background-color: var(--background);
-  font-family: 'Inter', Arial, sans-serif;
 }
 </style>
 
 <style scoped>
 .page-container {
-  padding: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 100px;
 }
 
 .page-title {
+  color: var(--dark-yellow, #271E0B);
+  font-family: 'Inter', sans-serif;
   font-size: 40px;
+  font-style: normal;
   font-weight: 600;
-  letter-spacing: 6px;
+  line-height: 150%; /* 60px */
+  letter-spacing: 2px;
+}
+
+.nav-text-1 {
+  color: var(--darker-yellow, #625437);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
 }
 
 .page-2-title {
-  font-size: 40px;
-  /* font-weight: 600; */
-  letter-spacing: 6px;
-  margin-top: 100px;
+  padding-top: 100px;
+  color: var(--dark-yellow, #271E0B);
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 48px */
+  letter-spacing: 1.6px;
 }
 
 .card-wrapper {
@@ -198,26 +218,28 @@ body {
 }
 
 .card-container {
-  background: white;
-  border-radius: 5%;
-  padding: 40px;
+  padding: 50px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 }
 
 .card-content {
   display: flex;
-  gap: 60px;
+  gap: 75px;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .teacher-image {
-  width: 500px;
-  height: auto;
-  border-radius: 5%;
-  object-fit: cover;
+  width: 462px;
+  height: 527px;
+  padding: 10px;
+  gap: 10px; 
+  border-radius: 16px;
 }
 
 .teacher-info {
@@ -225,27 +247,53 @@ body {
 }
 
 .teacher-info h2 {
-  margin-bottom: 16px;
+  height: 36px;
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 42px */
+  letter-spacing: 1.4px;
 }
 
 .teacher-info p {
-  font-family: 'Inter', Arial, sans-serif;
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  line-height: 1.75;
-  letter-spacing: 5%;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 175%; /* 24.5px */
+  letter-spacing: 0.7px;
 }
 
 .contact-details {
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: 1.4px;
   display: flex;
-  gap: 40px;
-  margin-top: 10px;
+  gap: 50px;
+}
+
+.nav-text-2 {
+  color: var(--blue, #597ED1);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.8px;
 }
 
 .contact-phone,
 .contact-email {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
 .icon {
@@ -285,32 +333,38 @@ body {
 .arrow-icon-2 {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
 }
 
 .arrow-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .activity-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 40px;
+  gap: 50px;
+  padding-top: 50px;
 }
 
 .activity-card {
-  background: white;
-  padding: 60px;
-  border-radius: 15px;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+  padding: 50px 70px;
+  gap: 10px;
 }
 
 .image-container {
+  display: flex;
+  height: 479.72px;
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Forces square container */
-  overflow: hidden;
-  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 8px;
 }
 
 .activity-image {
@@ -325,53 +379,87 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 5px 21px;
+  gap: 10px;
+  border-radius: 8px;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
 }
 
 .expertise-level.advanced {
-  background-color: #e74c3c; /* red */
+  background-color: #DE5050; /* red */
 }
 
 .expertise-level.intermediate {
-  background-color: #e67e22; /* orange */
+  background-color: #E0A13A; /* orange */
 }
 
 .expertise-level.beginner {
-  background-color: #2ecc71; /* green */
+  background-color: #79BF54; /* green */
 }
 
 
 .activity-title {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.8px;
+  display: flex;
+height: 42px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+align-self: stretch;
 }
 
 .activity-description {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #555;
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
+  height: 63px;
+  flex-shrink: 0;
+  align-self: stretch;
 }
 
 .activity-date {
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #888;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
+  display: flex;
+  width: 178px;
+  height: 31px;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .activity-date-container {
   display: flex;
+  height: 63px;
+  padding: 10px 0px;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
 }
 
 .calendar-icon {
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
 }
 
 </style>
