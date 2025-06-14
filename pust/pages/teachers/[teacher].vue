@@ -462,4 +462,74 @@ align-self: stretch;
   height: 25px;
 }
 
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 20px;
+  }
+
+  .page-title,
+  .page-2-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .card-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .teacher-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-container {
+    padding: 30px 20px;
+  }
+
+  .card-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .activity-card {
+    padding: 30px 20px;
+  }
+
+  .activity-description,
+  .activity-title {
+    height: auto;
+  }
+
+  .activity-date {
+    width: auto;
+  }
+
+  .arrow-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-text-2 {
+    font-size: 14px;
+  }
+}
+
+
 </style>
