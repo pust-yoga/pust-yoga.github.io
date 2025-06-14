@@ -36,52 +36,65 @@ body {
 
 <style scoped>
 .page-container {
-  padding: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 100px;
 }
 
 h1 {
+  font-family: 'Inter', sans-serif;
   font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 6px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  color: #271E0B;
+  line-height: 150%;
+  letter-spacing: 0%;
 }
 
 .teachers {
   display: flex;
   flex-wrap: wrap;
   grid-template-columns: repeat(3, 1fr); 
-  gap: 60px;
+  gap: 50px;
   justify-items: center;
   justify-content: center;
 }
 
 .teacher-card {
   background-color: white;
-  padding: 40px;
-  border-radius: 20px;
+  padding: 50px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 250px;
 }
 
-.teacher-card h2,
+.teacher-card h2 {
+  width: 100%; 
+  text-align: left; 
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 5%;
+  text-transform: uppercase;
+}
+
 .teacher-card p {
   width: 100%; 
   text-align: left; 
-
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 5%;
+  color: #445277
 }
 
 .teacher-image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-}
-
-.teacher-cv {
-  line-height: 1.5;
-  font-size: 16px;
-  color: #000;
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) { /* Applies when screen width is ≤ 768px */
