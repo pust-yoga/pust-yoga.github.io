@@ -1,6 +1,25 @@
 <script setup>
 const { $supabase } = useNuxtApp();
 
+useHead({
+  title: 'Meet the Team - Our Teachers',
+  meta: [
+    {
+      name: 'description',
+      content: 'Explore our dedicated team of teachers and read about their background and expertise.',
+    },
+    {
+      property: 'og:title',
+      content: 'Meet the Team - Our Teachers',
+    },
+    {
+      property: 'og:description',
+      content: 'Explore our dedicated team of teachers and read about their background and expertise.',
+    },
+  ],
+});
+
+
 const teachers = ref([]);
 
 async function getTeachers() {

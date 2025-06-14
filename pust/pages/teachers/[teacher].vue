@@ -8,6 +8,34 @@ const teacher = ref(null);
 const hasPrevious = ref(false);
 const hasNext = ref(false);
 
+const metaDescriptionFallback = 'Discover information about this teacher and their activities.';
+
+useHead(computed(() => {
+  if (!teacher.value) return {};
+
+  return {
+    title: `${teacher.value.firstname} - Teacher Profile`,
+    meta: [
+      {
+        name: 'description',
+        content: teacher.value.CV || metaDescriptionFallback,
+      },
+      {
+        property: 'og:title',
+        content: `${teacher.value.firstname} - Teacher Profile`,
+      },
+      {
+        property: 'og:description',
+        content: teacher.value.CV || metaDescriptionFallback,
+      },
+      {
+        property: 'og:image',
+        content: teacher.value.picture || '',
+      },
+    ],
+  };
+}));
+
 async function getTeacher() {
   const { data, error } = await $supabase
     .from('teacher')

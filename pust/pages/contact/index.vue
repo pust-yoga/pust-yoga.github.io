@@ -1,5 +1,28 @@
 <script setup>
 const { $supabase } = useNuxtApp();
+
+useHead({
+  title: 'Contact Us | Pust Yoga',
+  meta: [
+    {
+      name: 'description',
+      content: 'Get in touch with us. Find our address, phone number, and directions to our office in Milan, Italy.'
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    },
+    {
+      property: 'og:title',
+      content: 'Contact Us | Pust Yoga'
+    },
+    {
+      property: 'og:description',
+      content: 'Reach out to our team via phone or visit us in Milan.'
+    },
+
+  ]
+});
 </script>
 
 <template>
