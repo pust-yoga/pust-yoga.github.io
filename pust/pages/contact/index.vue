@@ -66,28 +66,26 @@ body {
 }
 
 h1 {
+  color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
   font-size: 40px;
-  letter-spacing: 0%;
-  color: #271E0B;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 60px */
+  font-size: 40px;
   padding: 50px;
-  line-height: 150%;
 }
 
 
-.contact-details-title {
-  margin-top: 0;
-  padding-top: 0;
-}
 
 .contact-info h2 {
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
   font-size: 36px;
-  line-height: 175%;
-  letter-spacing: 5%;
-  color: #000000;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; /* 63px */
+  letter-spacing: 1.8px;
 }
 
 .card-container {
@@ -108,15 +106,18 @@ h1 {
 }
 
 .contact-details {
-  font-family: 'Inter', sans-serif;
-  line-height: 150%; 
-  font-size: 16px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 25px;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
 }
 
 .contact-address,
