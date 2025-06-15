@@ -50,16 +50,14 @@ const { $supabase } = useNuxtApp();
 <style scoped>
 .about-page {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  background: var(--light-yellow, rgba(255, 241, 213, 0.90));
   padding-top: 50px;
   padding-bottom: 100px;
   padding-left: 50px;
   padding-right: 50px;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 100px;
-  background: var(--light-yellow, rgba(255, 241, 213, 0.90));
 }
 
 .page-title {
@@ -72,19 +70,25 @@ const { $supabase } = useNuxtApp();
   line-height: 150%;
 }
 
+.card {
+  width: 100%;
+  max-width: 1166px;
+  min-width: 320px;
+  box-sizing: border-box;
+}
+
 /* FIRST CARD */
 .first-card {
   display: flex;
+  height: auto;
+  min-height: 400px;
   height: 516px;
-  width: 1166px;
   padding: 50px;
   align-items: flex-start;
   gap: 75px;
   border-radius: 16px;
   background: #FFF;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  /* width: 100%;
-  max-width: 1166px; */
 }
 
 .card-image {
@@ -129,15 +133,13 @@ const { $supabase } = useNuxtApp();
 .second-card {
   display: flex;
   flex-direction: column;
+  min-height: 400px;
   height: 620px;
-  width: 1166px;
-  padding: 50px 100px 156px 50px;
+  padding: 50px 100px 50px 50px;
   gap: 10px;
   border-radius: 16px;
   background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png') lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  /* width: 100%;
-  max-width: 1166px; */
 }
 
 .second-card .card-description {
@@ -150,7 +152,7 @@ const { $supabase } = useNuxtApp();
 
 /* THIRD CARD */
 .third-card {
-  width: 1166px;
+  min-height: 400px;
   height: 786px;
   border-radius: 10px;
   background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png') lightgray 50% / cover no-repeat;
@@ -166,7 +168,8 @@ const { $supabase } = useNuxtApp();
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  width: 910px;
+  width: 100%;
+  max-width: 910px;
   height: 208px;
   justify-content: center;
 }
@@ -202,5 +205,33 @@ const { $supabase } = useNuxtApp();
 
 .contact-button:hover {
   background: #ba7a62;
+}
+
+/* Responsive: stack cards and make them full width on mobile */
+@media (max-width: 900px) {
+  .about-page {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 30px;
+  }
+  .card {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+  }
+  .first-card, .second-card, .third-card {
+    padding: 20px 10px;
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .card-overlay {
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0;
+  }
 }
 </style>
