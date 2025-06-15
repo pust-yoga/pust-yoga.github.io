@@ -52,7 +52,7 @@ const { $supabase } = useNuxtApp();
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
   background: var(--light-yellow, rgba(255, 241, 213, 0.90));
   padding-top: 50px;
   padding-bottom: 100px;
@@ -75,6 +75,7 @@ const { $supabase } = useNuxtApp();
   max-width: 1166px;
   min-width: 320px;
   box-sizing: border-box;
+  margin-bottom: 50px;
 }
 
 /* FIRST CARD */
