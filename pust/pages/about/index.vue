@@ -8,7 +8,7 @@ const { $supabase } = useNuxtApp();
 
     <!-- First Card -->
     <div class="card first-card">
-      <div class="card-image" />
+      <div class="card-image"></div>
       <div class="card-text">
         <h2 class="card-title">A Sanctuary for Movement and Stillness</h2>
         <p class="card-description">
@@ -16,7 +16,7 @@ const { $supabase } = useNuxtApp();
           environment, our space invites you to slow down, breathe deeply, and reconnect with yourself. Whether
           you're new to yoga or a seasoned practitioner, we welcome you to explore the transformative power of breath,
           movement, and mindfulness.
-          <br><br>
+          <br /><br />
           Our mission is simple: to support your journey toward balance, strength, and inner peace. We believe yoga is
           for everyone, and our experienced instructors are here to guide you every step of the way — with warmth,
           knowledge, and deep presence.
@@ -31,7 +31,7 @@ const { $supabase } = useNuxtApp();
         We hold space for growth, healing, and self-discovery, both on and off the mat. At the heart of our teaching
         is the belief that yoga is not about achieving the perfect pose, but about cultivating a deeper connection to
         your body, your breath, and your inner wisdom.
-        <br><br>
+        <br /><br />
         Classes at Pust Yoga are offered across a variety of styles and levels, so whether you’re looking to unwind,
         energize, stretch, or simply be — you’ll find a practice that meets you where you are.
       </p>
@@ -48,20 +48,20 @@ const { $supabase } = useNuxtApp();
 </template>
 
 <style scoped>
+/* Global page styling */
 .about-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
   background: var(--light-yellow, rgba(255, 241, 213, 0.90));
-  padding-top: 50px;
-  padding-bottom: 100px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 50px;
 }
 
+/* Title styles */
 .page-title {
-  width: 1166px;
+  width: 100%;
+  max-width: 1166px;
   height: 59px;
   color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
@@ -70,6 +70,7 @@ const { $supabase } = useNuxtApp();
   line-height: 150%;
 }
 
+/* Card Container */
 .card {
   width: 100%;
   max-width: 1166px;
@@ -81,8 +82,7 @@ const { $supabase } = useNuxtApp();
 /* FIRST CARD */
 .first-card {
   display: flex;
-  height: auto;
-  min-height: 400px;
+  flex-direction: row;
   height: 516px;
   padding: 50px;
   align-items: flex-start;
@@ -93,12 +93,12 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-image {
-  display: flex;
+  flex-shrink: 0;
   width: 377px;
   height: 414px;
-  padding: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png')
+    lightgray 50% / cover no-repeat;
 }
 
 .card-text {
@@ -109,7 +109,6 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-title {
-  height: 36px;
   color: var(--Header-on-white, #2E3A59);
   font-family: 'Inter', sans-serif;
   font-size: 28px;
@@ -118,7 +117,7 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-title.center {
-  text-align: flex-start;
+  text-align: center;
 }
 
 .card-description {
@@ -139,7 +138,8 @@ const { $supabase } = useNuxtApp();
   padding: 50px 100px 50px 50px;
   gap: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png')
+    lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -148,7 +148,7 @@ const { $supabase } = useNuxtApp();
   font-size: 14px;
   letter-spacing: 0.7px;
   max-width: 702px;
-  align-items: flex-start;
+  align-self: flex-start;
 }
 
 /* THIRD CARD */
@@ -156,7 +156,8 @@ const { $supabase } = useNuxtApp();
   min-height: 400px;
   height: 786px;
   border-radius: 10px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png')
+    lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
   display: flex;
@@ -189,7 +190,6 @@ const { $supabase } = useNuxtApp();
   display: flex;
   width: 250px;
   height: 56px;
-  padding: 14px 0;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -208,31 +208,71 @@ const { $supabase } = useNuxtApp();
   background: #ba7a62;
 }
 
-/* Responsive: stack cards and make them full width on mobile */
+/* Responsive adjustments for mobile */
 @media (max-width: 900px) {
   .about-page {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px;
     gap: 30px;
   }
+
   .card {
     max-width: 100%;
     min-width: 0;
     width: 100%;
     margin: 0;
   }
-  .first-card, .second-card, .third-card {
-    padding: 20px 10px;
+
+  /* Stack the first card vertically */
+  .first-card {
+    flex-direction: column;
     height: auto;
-    min-height: 300px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
   }
+
+  .card-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .card-text {
+    gap: 15px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+
+  .second-card {
+    padding: 20px;
+    height: 500px;
+  }
+
+  .third-card {
+    height: 500px;
+    padding: 20px;
+    min-height: 300px;
+  }
+
   .card-overlay {
     max-width: 100%;
     height: auto;
     padding: 20px 0;
+  }
+
+  .third-card-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+
+  .contact-button {
+    width: 200px;
+    height: 48px;
+    font-size: 14px;
   }
 }
 </style>
