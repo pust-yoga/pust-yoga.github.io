@@ -113,7 +113,7 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-title.center {
-  text-align: center;
+  text-align: flex-start;
 }
 
 .card-description {
@@ -144,6 +144,8 @@ const { $supabase } = useNuxtApp();
   color: #000;
   font-size: 14px;
   letter-spacing: 0.7px;
+  max-width: 702px;
+  align-items: flex-start;
 }
 
 /* THIRD CARD */
