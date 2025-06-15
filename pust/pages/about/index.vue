@@ -1,5 +1,18 @@
 <script setup>
+import { useHead } from 'nuxt/app'
 const { $supabase } = useNuxtApp();
+
+useHead({
+  title: 'About Us | Pust Yoga',
+  meta: [
+    { name: 'description', content: 'Learn about Pust Yoga, our philosophy, and how we create a sanctuary for movement and stillness in Milano.' },
+    { name: 'keywords', content: 'yoga, pust yoga, about, philosophy, sanctuary, Milano, movement, stillness, mindfulness' },
+    { property: 'og:title', content: 'About Us | Pust Yoga' },
+    { property: 'og:description', content: 'Discover our mission, philosophy, and what makes Pust Yoga a unique place for your yoga journey.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'robots', content: 'index, follow'}
+  ]
+})
 </script>
 
 <template>
@@ -8,7 +21,7 @@ const { $supabase } = useNuxtApp();
 
     <!-- First Card -->
     <div class="card first-card">
-      <div class="card-image"></div>
+      <div class="card-image" />
       <div class="card-text">
         <h2 class="card-title">A Sanctuary for Movement and Stillness</h2>
         <p class="card-description">
@@ -16,7 +29,7 @@ const { $supabase } = useNuxtApp();
           environment, our space invites you to slow down, breathe deeply, and reconnect with yourself. Whether
           you're new to yoga or a seasoned practitioner, we welcome you to explore the transformative power of breath,
           movement, and mindfulness.
-          <br /><br />
+          <br><br>
           Our mission is simple: to support your journey toward balance, strength, and inner peace. We believe yoga is
           for everyone, and our experienced instructors are here to guide you every step of the way — with warmth,
           knowledge, and deep presence.
@@ -31,7 +44,7 @@ const { $supabase } = useNuxtApp();
         We hold space for growth, healing, and self-discovery, both on and off the mat. At the heart of our teaching
         is the belief that yoga is not about achieving the perfect pose, but about cultivating a deeper connection to
         your body, your breath, and your inner wisdom.
-        <br /><br />
+        <br><br>
         Classes at Pust Yoga are offered across a variety of styles and levels, so whether you’re looking to unwind,
         energize, stretch, or simply be — you’ll find a practice that meets you where you are.
       </p>
