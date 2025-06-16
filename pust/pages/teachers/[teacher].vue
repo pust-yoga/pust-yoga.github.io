@@ -93,6 +93,7 @@ function navigateToNext() {
 </script>
 
 <template>
+  <Breadcrumbs :label="teacher ? teacher.firstname : ' '" />
   <div class="page-container">
     <h1 v-if="teacher" class="page-title">
       {{ teacher.firstname?.toUpperCase() || 'UNKNOWN' }}

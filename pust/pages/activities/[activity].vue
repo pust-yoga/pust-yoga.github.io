@@ -18,6 +18,7 @@ onMounted(() => {
 
 
 <template>
+  <Breadcrumbs :label="activity ? activity.name : ' '" />
   <section v-if="activity">
     <h1>{{ activity.name }}</h1>
     <div class="bigcard">
