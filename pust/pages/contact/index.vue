@@ -1,5 +1,28 @@
 <script setup>
 const { $supabase } = useNuxtApp();
+
+useHead({
+  title: 'Contact Us | Pust Yoga',
+  meta: [
+    {
+      name: 'description',
+      content: 'Get in touch with us. Find our address, phone number, and directions to our office in Milan, Italy.'
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    },
+    {
+      property: 'og:title',
+      content: 'Contact Us | Pust Yoga'
+    },
+    {
+      property: 'og:description',
+      content: 'Reach out to our team via phone or visit us in Milan.'
+    },
+
+  ]
+});
 </script>
 
 <template>
@@ -13,6 +36,7 @@ const { $supabase } = useNuxtApp();
         <div class="contact-details">
           <div class="contact-address">
             <img
+              loading="lazy"
               class="icon"
               src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-map.png"
               alt="Map icon"
@@ -25,6 +49,7 @@ const { $supabase } = useNuxtApp();
           </div>
           <div class="contact-phone">
             <img
+              loading="lazy"
               class="icon"
               src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/icon-phone.png"
               alt="Phone icon"
@@ -35,6 +60,7 @@ const { $supabase } = useNuxtApp();
       </div>
       <div class="image-container">
         <img
+          loading="lazy"
           src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images/yoga-zen.png"
           alt="Contact Us"
           class="contact-image"
@@ -48,31 +74,35 @@ const { $supabase } = useNuxtApp();
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 h1 {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 50px;
-  color: #333;
-  padding: 60px;
-  margin-bottom: 20px;
+  color: var(--dark-yellow, #271E0B);
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 60px */
+  font-size: 40px;
+  padding: 50px;
 }
 
-.contact-details-title {
-  margin-top: 0;
-  padding-top: 0;
-}
+
 
 .contact-info h2 {
-  font-size: 32px;
-  margin-bottom: 24px;
-  color: #000000;
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; /* 63px */
+  letter-spacing: 1.8px;
 }
 
 .card-container {
@@ -80,12 +110,11 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   background-color: #ffffff;
-  padding: 60px;
-  border-radius: 24px;
+  padding: 50px;
+  border-radius: 16px;
   width: 90%;
   max-width: 1000px;
-  gap: 60px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  gap: 50px;
 }
 
 .contact-info {
@@ -97,9 +126,15 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 25px;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
 }
 
 .contact-address,
