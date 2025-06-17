@@ -165,7 +165,12 @@ function navigateToNext() {
      {{ teacher.firstname?.toUpperCase()+"'S CLASSES" || 'UNKNOWN' }}
   </div>
   <div v-if="teacher?.activities?.length" class="activity-grid">
-    <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card card-hover">
+    <NuxtLink
+      v-for="activity in teacher.activities"
+      :key="activity.id"
+      class="activity-card card-hover"
+      :to="`/activities/${activity.id}`"
+    >
       <div class="image-container">
         <img :src="activity.picture" alt="Activity Image" loading="lazy" class="activity-image" />
         <span
@@ -190,7 +195,7 @@ function navigateToNext() {
         />
         <p class="activity-date">{{ activity.date }}</p>
       </div>
-    </div>
+    </NuxtLink>
   </div>
 
 
