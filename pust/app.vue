@@ -205,4 +205,49 @@ footer .links a {
     margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--header-color);
+    display: none;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    border-top: 1px solid #eee;
+  }
+
+  nav ul a {
+    padding: 15px 20px;
+    line-height: 1.5;
+    font-size: 18px;
+  }
+
+  footer {
+    padding: 40px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer .links {
+    align-items: flex-start;
+  }
+}
+
 </style>
