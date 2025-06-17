@@ -165,7 +165,7 @@ function navigateToNext() {
      {{ teacher.firstname?.toUpperCase()+"'S CLASSES" || 'UNKNOWN' }}
   </div>
   <div v-if="teacher?.activities?.length" class="activity-grid">
-    <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card">
+    <div v-for="activity in teacher.activities" :key="activity.id" class="activity-card card-hover">
       <div class="image-container">
         <img :src="activity.picture" alt="Activity Image" loading="lazy" class="activity-image" />
         <span
