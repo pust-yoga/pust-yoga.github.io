@@ -31,7 +31,7 @@
         <p>Step into a calm and welcoming space to reconnect with yourself.</p>
         <p>🌿 🧘 ✨</p>
         <div class="socials">
-          <a href="https://instagram.com">
+          <a href="https://www.instagram.com/pustyoga_2025/">
             <img src="/socials-insta.png" alt="Instagram" />
           </a>
           <a href="https://facebook.com">
