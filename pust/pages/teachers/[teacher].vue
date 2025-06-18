@@ -140,18 +140,14 @@ function navigateToNext() {
         <div class="card-navigation">
           <div style="flex:1;display:flex;">
             <button v-if="hasPrevious" @click="navigateToPrevious" class="nav-btn">
-              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
+              <img class="arrow-icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon_arrow_left.png" />
               <span class="nav-text-2">Previous Teacher</span>
             </button>
           </div>
           <div style="flex:1;display:flex;justify-content:flex-end;">
             <button v-if="hasNext" @click="navigateToNext" class="nav-btn">
               <span class="nav-text-2">Next Teacher</span>
-              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6.5 6a.5.5 0 0 1 0 .708l-6.5 6a.5.5 0 0 1-.708-.708L10.793 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
+              <img class="arrow-icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon_arrow_right.png" />
             </button>
           </div>
         </div>
@@ -267,7 +263,7 @@ body {
 .card-content {
   display: flex;
   gap: 75px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .teacher-image {
@@ -390,6 +386,7 @@ body {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
   padding: 50px 70px;
   gap: 10px;
+  text-decoration: none;
 }
 
 .image-container {
