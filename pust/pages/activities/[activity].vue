@@ -46,7 +46,7 @@ async function getActivity() {
   } else {
     activity.value = {
       ...data,
-      activities: data.teacher_activity.map((ta) => ta.activity),
+      teachers: data.teacher_activity.map((ta) => ta.teacher),
     };
     const currentId = parseInt(route.params.activity);
     const prev = await $supabase.from('activity').select('id').lt('id', currentId).order('id', { ascending: false }).limit(1);
@@ -140,6 +140,24 @@ function navigateToNext() {
           </button>
         </div>
       </div>
+    </div>
+
+    <div v-if="activity" class="page-2-title">
+      {{ "TAUGHT BY" }}
+    </div>
+    <div v-if="activity?.teachers.length" class="activity-grid">
+      <NuxtLink
+        v-for="teacher in activity.teachers"
+        :key="teacher.id"
+        class="activity-card card-hover"
+        :to="`/teachers/${teacher.id}`"
+      >
+        <div class="image-container">
+          <img :src="teacher.picture" alt="Teacher Image" loading="lazy" class="activity-image" />
+        </div>
+        <h3 class="activity-title">{{ teacher.firstname }}</h3>
+        <p class="activity-description">{{ teacher.CV }}</p>
+      </NuxtLink>
     </div>
   </section>
 </template>
@@ -291,6 +309,148 @@ h3 {
   font-weight: 400;
   line-height: 150%; /* 24px */
   letter-spacing: 0.8px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding-top: 50px;
+}
+.activity-card {
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+  padding: 50px 70px;
+  gap: 10px;
+  text-decoration: none;
+}
+.image-container {
+  display: flex;
+  height: 479.72px;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 8px;
+}
+.activity-title {
+  color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.8px;
+  display: flex;
+height: 42px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+align-self: stretch;
+}
+.activity-description {
+  color: var(--Text-on-white, #445277);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the square */
+  border-radius: 10px;
+}
+.page-2-title {
+  padding-top: 100px;
+  color: var(--dark-yellow, #271E0B);
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 48px */
+  letter-spacing: 1.6px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 20px;
+  }
+
+  .page-title,
+  .page-2-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .card-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .teacher-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-container {
+    padding: 30px 20px;
+  }
+
+  .card-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .activity-card {
+    padding: 30px 20px;
+  }
+
+  .activity-description,
+  .activity-title {
+    height: auto;
+  }
+
+  .activity-date {
+    width: auto;
+  }
+
+  .arrow-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-text-2 {
+    font-size: 14px;
+  }
+
+  .bigcard article {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 </style>
