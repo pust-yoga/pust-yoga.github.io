@@ -54,7 +54,7 @@ useHead({
     <div class="card third-card">
       <div class="card-overlay">
         <h2 class="third-card-title">ANY QUESTIONS?</h2>
-        <button class="contact-button">Contact Us</button>
+        <NuxtLink to="/contact" class="contact-button">Contact Us</NuxtLink>
       </div>
     </div>
   </div>
@@ -196,6 +196,7 @@ useHead({
 }
 
 .contact-button {
+  text-decoration: none;
   display: flex;
   width: 250px;
   height: 56px;
