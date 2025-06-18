@@ -1,5 +1,18 @@
 <script setup>
+import { useHead } from 'nuxt/app'
 const { $supabase } = useNuxtApp();
+
+useHead({
+  title: 'About Us | Pust Yoga',
+  meta: [
+    { name: 'description', content: 'Learn about Pust Yoga, our philosophy, and how we create a sanctuary for movement and stillness in Milano.' },
+    { name: 'keywords', content: 'yoga, pust yoga, about, philosophy, sanctuary, Milano, movement, stillness, mindfulness' },
+    { property: 'og:title', content: 'About Us | Pust Yoga' },
+    { property: 'og:description', content: 'Discover our mission, philosophy, and what makes Pust Yoga a unique place for your yoga journey.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'robots', content: 'index, follow'}
+  ]
+})
 </script>
 
 <template>
@@ -41,29 +54,27 @@ const { $supabase } = useNuxtApp();
     <div class="card third-card">
       <div class="card-overlay">
         <h2 class="third-card-title">ANY QUESTIONS?</h2>
-        <NuxtLink to="/contact" class="contact-button">Contact Us</NuxtLink>
+        <button class="contact-button">Contact Us</button>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+/* Global page styling */
 .about-page {
   display: flex;
-  flex-wrap: wrap;
-  padding-top: 50px;
-  padding-bottom: 100px;
-  padding-left: 50px;
-  padding-right: 50px;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
   background: var(--light-yellow, rgba(255, 241, 213, 0.90));
+  padding: 50px;
 }
 
+/* Title styles */
 .page-title {
-  width: 1166px;
+  width: 100%;
+  max-width: 1166px;
   height: 59px;
   color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
@@ -72,28 +83,35 @@ const { $supabase } = useNuxtApp();
   line-height: 150%;
 }
 
+/* Card Container */
+.card {
+  width: 100%;
+  max-width: 1166px;
+  min-width: 320px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
 /* FIRST CARD */
 .first-card {
   display: flex;
+  flex-direction: row;
   height: 516px;
-  width: 1166px;
   padding: 50px;
   align-items: flex-start;
   gap: 75px;
   border-radius: 16px;
   background: #FFF;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  /* width: 100%;
-  max-width: 1166px; */
 }
 
 .card-image {
-  display: flex;
+  flex-shrink: 0;
   width: 377px;
   height: 414px;
-  padding: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png')
+    lightgray 50% / cover no-repeat;
 }
 
 .card-text {
@@ -104,7 +122,6 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-title {
-  height: 36px;
   color: var(--Header-on-white, #2E3A59);
   font-family: 'Inter', sans-serif;
   font-size: 28px;
@@ -113,7 +130,7 @@ const { $supabase } = useNuxtApp();
 }
 
 .card-title.center {
-  text-align: flex-start;
+  text-align: center;
 }
 
 .card-description {
@@ -129,15 +146,14 @@ const { $supabase } = useNuxtApp();
 .second-card {
   display: flex;
   flex-direction: column;
+  min-height: 400px;
   height: 620px;
-  width: 1166px;
-  padding: 50px 100px 156px 50px;
+  padding: 50px 100px 50px 50px;
   gap: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png')
+    lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  /* width: 100%;
-  max-width: 1166px; */
 }
 
 .second-card .card-description {
@@ -145,15 +161,16 @@ const { $supabase } = useNuxtApp();
   font-size: 14px;
   letter-spacing: 0.7px;
   max-width: 702px;
-  align-items: flex-start;
+  align-self: flex-start;
 }
 
 /* THIRD CARD */
 .third-card {
-  width: 1166px;
+  min-height: 400px;
   height: 786px;
   border-radius: 10px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png') lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png')
+    lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
   display: flex;
@@ -166,7 +183,8 @@ const { $supabase } = useNuxtApp();
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  width: 910px;
+  width: 100%;
+  max-width: 910px;
   height: 208px;
   justify-content: center;
 }
@@ -185,7 +203,6 @@ const { $supabase } = useNuxtApp();
   display: flex;
   width: 250px;
   height: 56px;
-  padding: 14px 0;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -198,82 +215,77 @@ const { $supabase } = useNuxtApp();
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: background 0.3s ease;
-  text-decoration: none;
 }
 
 .contact-button:hover {
   background: #ba7a62;
 }
 
-@media (max-width: 768px) {
+/* Responsive adjustments for mobile */
+@media (max-width: 900px) {
   .about-page {
-    flex-direction: column;
-    padding: 20px 5px 60px 5px;
-    gap: 40px;
+    padding: 20px;
+    gap: 30px;
   }
-  .page-title {
-    width: 100%;
-    font-size: 28px;
-    text-align: center;
-    height: auto;
-  }
-  .first-card,
-  .second-card,
-  .third-card {
-    width: 100%;
-    min-width: 0;
+
+  .card {
     max-width: 100%;
-    padding: 20px 10px;
-    box-sizing: border-box;
-    height: auto;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
   }
+
+  /* Stack the first card vertically */
   .first-card {
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
     height: auto;
-    padding: 20px 10px;
+    padding: 20px;
+    gap: 20px;
   }
+
   .card-image {
     width: 100%;
-    max-width: 320px;
-    height: 180px;
-    margin: 0 auto;
-    background-size: cover;
+    height: 300px;
   }
+
   .card-text {
-    gap: 10px;
-  }
-  .second-card {
-    padding: 20px 10px;
-    height: auto;
-    background-size: cover;
-  }
-  .second-card .card-description {
-    max-width: 100%;
-    font-size: 13px;
-  }
-  .third-card {
-    height: 220px;
-    padding: 0;
-    background-size: cover;
-  }
-  .card-overlay {
-    width: 90%;
-    height: auto;
     gap: 15px;
-    padding: 10px 0;
   }
-  .third-card-title {
-    font-size: 22px;
-    letter-spacing: 2px;
+
+  .card-title {
+    font-size: 24px;
   }
-  .contact-button {
-    width: 100%;
-    max-width: 200px;
-    height: 44px;
+
+  .card-description {
     font-size: 14px;
-    padding: 10px 0;
+  }
+
+  .second-card {
+    padding: 20px;
+    height: 500px;
+  }
+
+  .third-card {
+    height: 500px;
+    padding: 20px;
+    min-height: 300px;
+  }
+
+  .card-overlay {
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .third-card-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+
+  .contact-button {
+    width: 200px;
+    height: 48px;
+    font-size: 14px;
   }
 }
 </style>
