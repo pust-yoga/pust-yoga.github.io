@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="links">
-        <div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <NuxtLink to="/about">About PUST YOGA</NuxtLink>
           <NuxtLink to="/contact">Contact Us</NuxtLink>
         </div>
