@@ -15,6 +15,8 @@
   </nav>
 
   <div class="nav-margin"></div>
+  <Breadcrumbs />
+
   <NuxtPage />
 
   <footer>
@@ -68,6 +70,7 @@ const toggleMenu = () => {
   --background: rgba(255, 241, 213, 0.9);
   --header-color: #ffffff;
   --font: Inter, Arial, sans-serif;
+  --breadcrumb-height: 75px;
 }
 
 body {
