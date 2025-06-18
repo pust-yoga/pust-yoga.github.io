@@ -61,7 +61,6 @@ useHead({
 </template>
 
 <style scoped>
-/* Global page styling */
 .about-page {
   display: flex;
   flex-direction: column;
@@ -71,7 +70,6 @@ useHead({
   padding: 50px;
 }
 
-/* Title styles */
 .page-title {
   width: 100%;
   max-width: 1166px;
@@ -83,7 +81,6 @@ useHead({
   line-height: 150%;
 }
 
-/* Card Container */
 .card {
   width: 100%;
   max-width: 1166px;
@@ -92,7 +89,6 @@ useHead({
   margin-bottom: 50px;
 }
 
-/* FIRST CARD */
 .first-card {
   display: flex;
   flex-direction: row;
@@ -142,7 +138,6 @@ useHead({
   letter-spacing: 0.8px;
 }
 
-/* SECOND CARD */
 .second-card {
   display: flex;
   flex-direction: column;
@@ -164,7 +159,6 @@ useHead({
   align-self: flex-start;
 }
 
-/* THIRD CARD */
 .third-card {
   min-height: 400px;
   height: 786px;
@@ -221,7 +215,6 @@ useHead({
   background: #ba7a62;
 }
 
-/* Responsive adjustments for mobile */
 @media (max-width: 900px) {
   .about-page {
     padding: 20px;
@@ -235,7 +228,6 @@ useHead({
     margin: 0;
   }
 
-  /* Stack the first card vertically */
   .first-card {
     flex-direction: column;
     height: auto;
