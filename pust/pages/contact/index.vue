@@ -26,8 +26,9 @@ useHead({
 </script>
 
 <template>
-  <h1>CONTACT US</h1>
+  
   <div class="page-container">
+    <h1>CONTACT US</h1>
     <div class="card-container">
       <div class="contact-info">
         <div class="contact-details-title">
@@ -76,7 +77,7 @@ useHead({
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding-bottom: 100px;
   padding-left: 50px;
   padding-right: 50px;
@@ -88,12 +89,13 @@ h1 {
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 60px */
-  font-size: 40px;
-  padding: 50px;
+  line-height: 150%;
+  padding: 50px 0 40px 0;
+  text-align: left;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0;
 }
-
-
 
 .contact-info h2 {
   color: var(--Header-on-white, var(--Header-on-white, #2E3A59));
@@ -116,6 +118,7 @@ h1 {
   max-width: 1000px;
   gap: 50px;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+  margin: 0;
 }
 
 .contact-info {
@@ -169,6 +172,27 @@ h1 {
   width: auto;
   border-radius: 16px;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 900px) {
+  .page-container {
+    padding: 10px;
+    align-items: flex-start;
+  }
+  h1 {
+    font-size: 24px;
+    padding: 20px 0 10px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .card-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 0;
+    gap: 20px;
+    box-sizing: border-box;
+  }
 }
 
 @media only screen and (max-width: 768px) {
