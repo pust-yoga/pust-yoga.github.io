@@ -115,6 +115,7 @@ h1 {
   width: 90%;
   max-width: 1000px;
   gap: 50px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 }
 
 .contact-info {
