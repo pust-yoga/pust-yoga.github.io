@@ -5,6 +5,8 @@ const { $supabase } = useNuxtApp()
 const route = useRoute()
 
 const activity = ref(null)
+const hasPrevious = ref(false);
+const hasNext = ref(false);
 
 useHead(() => {
   return {
@@ -27,16 +29,56 @@ useHead(() => {
 })
 
 async function getActivity() {
-  const { data } = await $supabase
+  const { data, error } = await $supabase
     .from('activity')
-    .select()
+    .select(`
+      *,
+      teacher_activity (
+        *,
+        teacher (*)
+      )
+    `)
     .eq('id', route.params.activity)
-    .single()
-  activity.value = data
+    .single();
+
+  if (error) {
+    console.error('Error fetching activity:', error);
+  } else {
+    activity.value = {
+      ...data,
+      activities: data.teacher_activity.map((ta) => ta.activity),
+    };
+    const currentId = parseInt(route.params.activity);
+    const prev = await $supabase.from('activity').select('id').lt('id', currentId).order('id', { ascending: false }).limit(1);
+    const next = await $supabase.from('activity').select('id').gt('id', currentId).order('id', { ascending: true }).limit(1);
+    hasPrevious.value = prev.data && prev.data.length > 0;
+    hasNext.value = next.data && next.data.length > 0;
+  }
 }
+
 onMounted(() => {
   getActivity()
 })
+function navigateToActivity(id) {
+  const router = useRouter();
+  router.push(`/activities/${id}`);
+}
+function navigateToActivities() {
+  const router = useRouter();
+  router.push('/activities');
+}
+function navigateToPrevious() {
+  const previousId = parseInt(route.params.activity) - 1;
+  if (previousId > 0) {
+    navigateToActivity(previousId);
+  }
+}
+
+function navigateToNext() {
+  const nextId = parseInt(route.params.activity) + 1;
+  navigateToActivity(nextId);
+}
+
 </script>
 
 
@@ -44,6 +86,24 @@ onMounted(() => {
   <Breadcrumbs :label="activity ? activity.name : ' '" />
   <section v-if="activity">
     <h1>{{ activity.name }}</h1>
+    <div class="back-link">
+      <button @click="navigateToActivities" class="nav-btn-2">
+        <svg
+          class="arrow-icon-2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.207 8l6.147 5.646a.5.5 0 0 1-.708.708l-6.5-6a.5.5 0 0 1 0-.708l6.5-6a.5.5 0 0 1 .708 0z"
+          />
+        </svg>
+        <span class="nav-text-1">Back to Activities</span>
+      </button>
+    </div>
     <div class="bigcard">
       <article>
         <img :src="activity.picture" loading="lazy" alt="Activity Picture">
@@ -66,10 +126,19 @@ onMounted(() => {
           </div>
         </div>
       </article>
-      <div>
-        <!-- Nav to prev and next activity -->
-        <NuxtLink v-if="prevActivity" :to="`/activities/${prevActivity.id}`">Previous activity</NuxtLink>
-        <NuxtLink v-if="nextActivity" :to="`/activities/${nextActivity.id}`">Next activity</NuxtLink>
+      <div class="card-navigation">
+        <div style="flex:1;display:flex;">
+          <button v-if="hasPrevious" @click="navigateToPrevious" class="nav-btn">
+            <img class="arrow-icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon_arrow_left.png" />
+            <span class="nav-text-2">Previous Activity</span>
+          </button>
+        </div>
+        <div style="flex:1;display:flex;justify-content:flex-end;">
+          <button v-if="hasNext" @click="navigateToNext" class="nav-btn">
+            <span class="nav-text-2">Next Activity</span>
+            <img class="arrow-icon" src="https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//icon_arrow_right.png" />
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -77,7 +146,7 @@ onMounted(() => {
 
 <style scoped>
 section {
-  padding: 50px 100px;
+  padding: 50px 50px;
 }
 
 h1 {
@@ -86,7 +155,26 @@ h1 {
   font-weight: 600;
   line-height: 150%; /* 60px */
   letter-spacing: 2px;
-  margin: 0;
+}
+
+.nav-btn-2 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #FFF1D5E5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+.nav-text-1 {
+  color: var(--darker-yellow, #625437);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.7px;
 }
 
 .bigcard {
@@ -94,6 +182,9 @@ h1 {
   background-color: white;
   padding: 50px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .bigcard article {
@@ -171,4 +262,35 @@ h3 {
 .advanced {
   background-color: #DE5050;
 }
+
+.card-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: blue;
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+}
+.nav-text-2 {
+  color: var(--blue, #597ED1);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.8px;
+}
+
 </style>
