@@ -21,7 +21,7 @@ defineProps({
             <!-- <span v-if="index < segments.length - 1"> / </span> -->
         </li>
     </ul>
-    <div :class="route.path==='/' ? '' : 'breadcrumbs-margin'"></div>
+    <div v-if="label===null" :class="route.path==='/' ? '' : 'breadcrumbs-margin'"></div>
 </template>
 
 <style scoped>
