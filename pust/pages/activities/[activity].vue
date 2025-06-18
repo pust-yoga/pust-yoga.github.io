@@ -23,7 +23,7 @@ onMounted(() => {
     <h1>{{ activity.name }}</h1>
     <div class="bigcard">
       <article>
-        <img :src="activity.picture" alt="Activity Picture">
+        <img :src="activity.picture" loading="lazy" alt="Activity Picture">
         <div 
           :class="'activity-level ' + (
             activity.expertise_level === 'Beginner' ? ' beginner ' : 
@@ -39,7 +39,7 @@ onMounted(() => {
           <!-- <p>{{ activity.practical_information }}</p> -->
           <h3>Weekly time schedule:</h3>
           <div class="date">
-            <img src="/calendar_icon.png" alt=""> {{ activity.date }}
+            <img src="/calendar_icon.png" loading="lazy" alt=""> {{ activity.date }}
           </div>
         </div>
       </article>

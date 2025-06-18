@@ -31,7 +31,7 @@ onMounted(() => {
                     <NuxtLink to="/about" class="link">Learn more about us</NuxtLink>
                 </div>
             </div>
-            <img src="/pust_home2.png" alt="Yoga Image">
+            <img src="/pust_home2.png" loading="lazy" alt="Yoga Image">
         </div>
     </section>
     <section class="bigcard recommended">
@@ -49,25 +49,25 @@ onMounted(() => {
     <section class="bigcard heads">
         <div>
             <div>
-                <img src="/head1_crop.png" alt="improves sleep">
+                <img src="/head1_crop.png" loading="lazy" alt="improves sleep">
                 <h2>IMPROVES</h2>
                 <h3>SLEEP</h3>
                 <p>Yoga calms the nervous system, helping you unwind and promoting deeper, more refreshing sleep.</p>
             </div>
             <div>
-                <img src="/head2_crop.png" alt="boosts creativity">
+                <img src="/head2_crop.png" loading="lazy" alt="boosts creativity">
                 <h2>BOOSTS</h2>
                 <h3>CREATIVITY</h3>
                 <p>Yoga can shift your perspective, spark new ideas, and even lead to those inspiring ‘aha’ moments.</p>
             </div>
             <div>
-                <img src="/head3_crop.png" alt="enhances meditation">
+                <img src="/head3_crop.png" loading="lazy" alt="enhances meditation">
                 <h2>ENHANCES</h2>
                 <h3>MEDITATION</h3>
                 <p>By sharpening your focus, yoga makes it easier to enter a meditative state -both during practice and in everyday life.</p>
             </div>
             <div>
-                <img src="/head4_crop.png" alt="reduces stress">
+                <img src="/head4_crop.png" loading="lazy" alt="reduces stress">
                 <h2>REDUCES</h2>
                 <h3>STRESS</h3>
                 <p>Yoga activates the body’s relaxation response, easing anxiety and tension with effects that last long after your session ends.</p>

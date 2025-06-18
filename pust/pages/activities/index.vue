@@ -30,7 +30,7 @@ const handleFilterChange = (level) => {
     <div class="filter">
       <h2>FILTER BY EXPERTISE LEVEL</h2>
       <div>
-        <img src="/filter_icon.png" alt="">
+        <img src="/filter_icon.png" loading="lazy" alt="">
         <label 
           v-for="level in ['Beginner', 'Intermediate', 'Advanced']" :key="level" 
           :for="level"
