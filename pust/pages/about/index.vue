@@ -204,4 +204,76 @@ const { $supabase } = useNuxtApp();
 .contact-button:hover {
   background: #ba7a62;
 }
+
+@media (max-width: 768px) {
+  .about-page {
+    flex-direction: column;
+    padding: 20px 5px 60px 5px;
+    gap: 40px;
+  }
+  .page-title {
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+    height: auto;
+  }
+  .first-card,
+  .second-card,
+  .third-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    height: auto;
+  }
+  .first-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+    padding: 20px 10px;
+  }
+  .card-image {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+    margin: 0 auto;
+    background-size: cover;
+  }
+  .card-text {
+    gap: 10px;
+  }
+  .second-card {
+    padding: 20px 10px;
+    height: auto;
+    background-size: cover;
+  }
+  .second-card .card-description {
+    max-width: 100%;
+    font-size: 13px;
+  }
+  .third-card {
+    height: 220px;
+    padding: 0;
+    background-size: cover;
+  }
+  .card-overlay {
+    width: 90%;
+    height: auto;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .third-card-title {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  .contact-button {
+    width: 100%;
+    max-width: 200px;
+    height: 44px;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
 </style>

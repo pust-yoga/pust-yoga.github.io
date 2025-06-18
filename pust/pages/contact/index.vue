@@ -178,7 +178,6 @@ h1 {
     align-items: center;
     justify-content: center;
     display: flex;
-
   }
 
   h1 {
@@ -204,6 +203,13 @@ h1 {
 
   .icon {
     margin-bottom: 10px;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .contact-image {

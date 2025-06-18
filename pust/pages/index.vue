@@ -280,4 +280,102 @@ section.home {
     letter-spacing: 1.6px;
 }
 
+@media (max-width: 768px) {
+  section.home {
+    height: auto;
+    min-height: 60vh;
+    padding: 40px 10px 30px 10px;
+    background-position: center;
+  }
+  .home > * {
+    position: static;
+    left: unset;
+    transform: none;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+  .home h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    top: unset;
+  }
+  .home h2 {
+    font-size: 15px;
+    top: unset;
+  }
+  .explore {
+    top: unset;
+    margin-bottom: 10px;
+  }
+  .bigcard {
+    flex-direction: column;
+    padding: 30px 5px;
+    border-top-width: 8px;
+  }
+  .bigcard > div {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 5px;
+    min-width: 0;
+    width: 100%;
+  }
+  .welcome img {
+    width: 90vw;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    padding: 10px 0;
+  }
+  .welcome h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+  .welcome p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .learnMore {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .recommended > div {
+    padding: 20px 5px;
+  }
+  .recommended h1 {
+    font-size: 22px;
+    padding-left: 0;
+  }
+  .recommended h2 {
+    font-size: 13px;
+    padding-left: 0;
+  }
+  .card-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .heads > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .heads > div > div {
+    width: 100%;
+    padding: 0 0 10px 0;
+  }
+  .heads img {
+    width: 90vw;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+  }
+  .heads h2, .heads h3 {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .heads p {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
 </style>
