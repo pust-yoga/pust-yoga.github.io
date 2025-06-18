@@ -1,18 +1,5 @@
 <script setup>
-import { useHead } from 'nuxt/app'
 const { $supabase } = useNuxtApp();
-
-useHead({
-  title: 'About Us | Pust Yoga',
-  meta: [
-    { name: 'description', content: 'Learn about Pust Yoga, our philosophy, and how we create a sanctuary for movement and stillness in Milano.' },
-    { name: 'keywords', content: 'yoga, pust yoga, about, philosophy, sanctuary, Milano, movement, stillness, mindfulness' },
-    { property: 'og:title', content: 'About Us | Pust Yoga' },
-    { property: 'og:description', content: 'Discover our mission, philosophy, and what makes Pust Yoga a unique place for your yoga journey.' },
-    { property: 'og:type', content: 'website' },
-    { name: 'robots', content: 'index, follow'}
-  ]
-})
 </script>
 
 <template>
@@ -54,27 +41,29 @@ useHead({
     <div class="card third-card">
       <div class="card-overlay">
         <h2 class="third-card-title">ANY QUESTIONS?</h2>
-        <button class="contact-button">Contact Us</button>
+        <NuxtLink to="/contact" class="contact-button">Contact Us</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Global page styling */
 .about-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 100px;
   background: var(--light-yellow, rgba(255, 241, 213, 0.90));
-  padding: 50px;
 }
 
-/* Title styles */
 .page-title {
-  width: 100%;
-  max-width: 1166px;
+  width: 1166px;
   height: 59px;
   color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
@@ -83,35 +72,28 @@ useHead({
   line-height: 150%;
 }
 
-/* Card Container */
-.card {
-  width: 100%;
-  max-width: 1166px;
-  min-width: 320px;
-  box-sizing: border-box;
-  margin-bottom: 50px;
-}
-
 /* FIRST CARD */
 .first-card {
   display: flex;
-  flex-direction: row;
   height: 516px;
+  width: 1166px;
   padding: 50px;
   align-items: flex-start;
   gap: 75px;
   border-radius: 16px;
   background: #FFF;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  /* width: 100%;
+  max-width: 1166px; */
 }
 
 .card-image {
-  flex-shrink: 0;
+  display: flex;
   width: 377px;
   height: 414px;
+  padding: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png')
-    lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_1.png') lightgray 50% / cover no-repeat;
 }
 
 .card-text {
@@ -122,6 +104,7 @@ useHead({
 }
 
 .card-title {
+  height: 36px;
   color: var(--Header-on-white, #2E3A59);
   font-family: 'Inter', sans-serif;
   font-size: 28px;
@@ -130,7 +113,7 @@ useHead({
 }
 
 .card-title.center {
-  text-align: center;
+  text-align: flex-start;
 }
 
 .card-description {
@@ -146,14 +129,15 @@ useHead({
 .second-card {
   display: flex;
   flex-direction: column;
-  min-height: 400px;
   height: 620px;
-  padding: 50px 100px 50px 50px;
+  width: 1166px;
+  padding: 50px 100px 156px 50px;
   gap: 10px;
   border-radius: 16px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png')
-    lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_2.png') lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  /* width: 100%;
+  max-width: 1166px; */
 }
 
 .second-card .card-description {
@@ -161,16 +145,15 @@ useHead({
   font-size: 14px;
   letter-spacing: 0.7px;
   max-width: 702px;
-  align-self: flex-start;
+  align-items: flex-start;
 }
 
 /* THIRD CARD */
 .third-card {
-  min-height: 400px;
+  width: 1166px;
   height: 786px;
   border-radius: 10px;
-  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png')
-    lightgray 50% / cover no-repeat;
+  background: url('https://rrginxykskmhdqduxshx.supabase.co/storage/v1/object/public/images//aboutUs_3.png') lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
   display: flex;
@@ -183,8 +166,7 @@ useHead({
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  width: 100%;
-  max-width: 910px;
+  width: 910px;
   height: 208px;
   justify-content: center;
 }
@@ -203,6 +185,7 @@ useHead({
   display: flex;
   width: 250px;
   height: 56px;
+  padding: 14px 0;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -215,77 +198,10 @@ useHead({
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-button:hover {
   background: #ba7a62;
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 900px) {
-  .about-page {
-    padding: 20px;
-    gap: 30px;
-  }
-
-  .card {
-    max-width: 100%;
-    min-width: 0;
-    width: 100%;
-    margin: 0;
-  }
-
-  /* Stack the first card vertically */
-  .first-card {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .card-image {
-    width: 100%;
-    height: 300px;
-  }
-
-  .card-text {
-    gap: 15px;
-  }
-
-  .card-title {
-    font-size: 24px;
-  }
-
-  .card-description {
-    font-size: 14px;
-  }
-
-  .second-card {
-    padding: 20px;
-    height: 500px;
-  }
-
-  .third-card {
-    height: 500px;
-    padding: 20px;
-    min-height: 300px;
-  }
-
-  .card-overlay {
-    max-width: 100%;
-    height: auto;
-    padding: 20px 0;
-  }
-
-  .third-card-title {
-    font-size: 32px;
-    letter-spacing: 4px;
-  }
-
-  .contact-button {
-    width: 200px;
-    height: 48px;
-    font-size: 14px;
-  }
 }
 </style>
