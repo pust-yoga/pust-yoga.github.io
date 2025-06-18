@@ -82,8 +82,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   max-width: 250px;
-  text-decoration: none; /* counteract anchor tag */
-  color: unset; /* counteract anchor tag */
+  text-decoration: none; 
+  color: unset; 
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -132,9 +132,9 @@ h1 {
   border-radius: 8px;
 }
 
-@media (max-width: 768px) { /* Applies when screen width is ≤ 768px */
+@media (max-width: 768px) { 
   .teachers {
-    grid-template-columns: repeat(1, 1fr); /* Switch to 1 card per row */
+    grid-template-columns: repeat(1, 1fr); 
     gap: 30px;
   }
 }

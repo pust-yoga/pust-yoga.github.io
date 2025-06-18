@@ -403,7 +403,7 @@ body {
 .activity-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image fills the square */
+  object-fit: cover; 
   border-radius: 10px;
 }
 
@@ -424,15 +424,15 @@ body {
 }
 
 .expertise-level.advanced {
-  background-color: #DE5050; /* red */
+  background-color: #DE5050; 
 }
 
 .expertise-level.intermediate {
-  background-color: #E0A13A; /* orange */
+  background-color: #E0A13A; 
 }
 
 .expertise-level.beginner {
-  background-color: #79BF54; /* green */
+  background-color: #79BF54; 
 }
 
 
