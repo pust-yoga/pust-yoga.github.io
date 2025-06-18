@@ -1,8 +1,31 @@
 <script setup>
+import { useHead } from 'nuxt/app'
+
 const { $supabase } = useNuxtApp()
 const route = useRoute()
 
 const activity = ref(null)
+
+useHead(() => {
+  return {
+    title: activity.value?.name ? `${activity.value.name} | Pust Yoga` : 'Activity | Pust Yoga',
+    meta: [
+      {
+        name: 'description',
+        content: activity.value?.long_description || 'Discover this yoga activity at Pust Yoga Milano.'
+      },
+      {
+        property: 'og:title',
+        content: activity.value?.name ? `${activity.value.name} | Pust Yoga` : 'Activity | Pust Yoga'
+      },
+      {
+        property: 'og:description',
+        content: activity.value?.long_description || 'Discover this yoga activity at Pust Yoga Milano.'
+      }
+    ]
+  }
+})
+
 async function getActivity() {
   const { data } = await $supabase
     .from('activity')
