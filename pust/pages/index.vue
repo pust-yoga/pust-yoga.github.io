@@ -1,4 +1,6 @@
 <script setup>
+import { useHead } from 'nuxt/app'
+
 const { $supabase } = useNuxtApp()
 
 const activities = ref([])
@@ -8,6 +10,18 @@ async function getActivities() {
 }
 onMounted(() => {
     getActivities()
+})
+
+useHead({
+  title: 'Pust Yoga | Yoga in Milano for Every Body',
+  meta: [
+    { name: 'description', content: 'Pust Yoga offers yoga classes for all levels in Milano. Breathe, move, and connect in a serene, welcoming space with experienced instructors.' },
+    { name: 'keywords', content: 'yoga, pust yoga, milano, classes, mindfulness, movement, beginner, advanced, yoga studio' },
+    { property: 'og:title', content: 'Pust Yoga | Yoga in Milano for Every Body' },
+    { property: 'og:description', content: 'Join Pust Yoga in Milano for classes that support your journey to balance, strength, and inner peace.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'robots', content: 'index, follow' }
+  ]
 })
 </script>
 

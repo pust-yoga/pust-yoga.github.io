@@ -136,7 +136,7 @@ nav {
   background-color: var(--header-color);
   width: 100%;
   box-sizing: border-box;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 nav img {

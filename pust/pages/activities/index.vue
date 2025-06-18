@@ -1,4 +1,6 @@
 <script setup>
+import { useHead } from 'nuxt/app'
+
 const { $supabase } = useNuxtApp()
 
 const activities = ref([])
@@ -16,6 +18,17 @@ const handleFilterChange = (level) => {
   filter.value = filter.value === level ? null : level;
 }
 
+useHead({
+  title: 'Activities | Pust Yoga',
+  meta: [
+    { name: 'description', content: 'Explore all yoga activities at Pust Yoga Milano. Find classes for all levels: beginner, intermediate, and advanced.' },
+    { name: 'keywords', content: 'yoga, activities, classes, beginner, intermediate, advanced, pust yoga, milano' },
+    { property: 'og:title', content: 'Activities | Pust Yoga' },
+    { property: 'og:description', content: 'Explore all yoga activities at Pust Yoga. Find classes for all levels.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'robots', content: 'index, follow' }
+  ]
+})
 </script>
 
 <template>
