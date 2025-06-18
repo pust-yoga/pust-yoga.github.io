@@ -74,11 +74,13 @@ useHead({
   width: 100%;
   max-width: 1166px;
   height: 59px;
+
   color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
   font-size: 40px;
+  font-style: normal;
   font-weight: 600;
-  line-height: 150%;
+  line-height: 150%; /* 60px */
 }
 
 .card {

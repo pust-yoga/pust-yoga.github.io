@@ -84,17 +84,18 @@ useHead({
 }
 
 h1 {
-  color: var(--dark-yellow, #271E0B);
-  font-family: 'Inter', sans-serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
   padding: 50px 0 40px 0;
   text-align: left;
   width: 90%;
   max-width: 1000px;
   margin: 0;
+
+  color: var(--dark-yellow, #271E0B);
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 60px */
 }
 
 .contact-info h2 {

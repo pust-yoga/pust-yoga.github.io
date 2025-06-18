@@ -57,11 +57,12 @@ onMounted(() => {
 
 h1 {
   margin-bottom: 50px;
+
   color: var(--dark-yellow, #271E0B);
   font-family: 'Inter', sans-serif;
   font-size: 40px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 150%; /* 60px */
 }
 
